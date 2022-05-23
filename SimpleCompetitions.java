@@ -1,8 +1,8 @@
 /*
- * Student name: XXX
- * Student ID: YYY
- * LMS username: ZZZ
- */
+* Student name: Johnson Zhou
+* Student ID: 1302442
+* LMS username: zhoujj
+*/
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class SimpleCompetitions {
     }
 
     public void report() {
-    	
+      
     }
 
     /**
@@ -20,8 +20,8 @@ public class SimpleCompetitions {
     * @param args main program arguments
     */
     public static void main(String[] args) {
-    	
-    	//Create an object of the SimpleCompetitions class
+      
+      //Create an object of the SimpleCompetitions class
         SimpleCompetitions sc = new SimpleCompetitions();
         
         //Add your code to complete the task
