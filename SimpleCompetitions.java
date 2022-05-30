@@ -8,11 +8,16 @@ import java.util.Scanner;
 
 public class SimpleCompetitions {
 
-  private boolean testMode;
+  private boolean testMode = true;
 
-  public Competition addNewCompetition() {
-      
+  public SimpleCompetitions() {
+    
   }
+
+  // todo
+  // public Competition addNewCompetition() {
+      
+  // }
 
   public void report() {
     
@@ -25,8 +30,8 @@ public class SimpleCompetitions {
   public static void main(String[] args) {
     
     //Create an object of the SimpleCompetitions class
-      SimpleCompetitions sc = new SimpleCompetitions();
+    // SimpleCompetitions sc = new SimpleCompetitions();
       
-      //Add your code to complete the task
+    //Add your code to complete the task
   }
 }

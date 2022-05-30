@@ -6,4 +6,15 @@
 
 public class LuckyNumbersCompetition extends Competition {
 
+  /** Competition */
+
+  // todo
+  public void addEntries() {
+
+  }
+
+  //todo
+  public void drawWinners() {
+
+  }
 }
