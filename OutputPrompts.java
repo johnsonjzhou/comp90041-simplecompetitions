@@ -9,6 +9,12 @@ public final class OutputPrompts {
   public static final String LOAD_FILE = 
     "Load competitions from file? (Y/N)";
 
+  public static final String SAVE_FILE = 
+    "Save competitions to file? (Y/N)?";
+
+  public static final String SAVE_FILE_SUCCESS = 
+    "Competitions have been saved to file.";
+
   public static final String RUN_MODE = 
     "Which mode would you like to run? (Type T for Testing, and N for Normal mode):";
 
@@ -17,6 +23,9 @@ public final class OutputPrompts {
 
   public static final String BILL_FILE = 
     "Bill file: ";  //! trailing whitespace
+
+  public static final String BILL_FILE_UPDATED = 
+    "The bill file has also been automatically updated.";
 
   public static final String MENU_SELECTION = 
     "Please select an option. Type 5 to exit.";
@@ -46,4 +55,10 @@ public final class OutputPrompts {
 
   public static final String ADD_MORE_ENTRIES = 
     "Add more entries (Y/N)?";
+
+  public static final String WINNING_ENTRIES = 
+    "Winning entries:";
+
+  public static final String GOODBYE = 
+    "Goodbye!";
 }

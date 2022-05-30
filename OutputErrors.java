@@ -21,6 +21,9 @@ public final class OutputErrors {
   public static final String NO_COMPETITION_CREATED = 
     "No competition has been created yet!";
 
+  public static final String COMPETITION_NO_ENTRIES = 
+    "The current competition has no entries yet!";
+
   public static final String INVALID_COMPETITION_TYPE = 
     "Invalid competition type! Please choose again.";
 
