@@ -38,4 +38,11 @@ public final class OutputErrors {
 
   public static final String BILL_USED = 
     "This bill has already been used for a competition. Please try again.";
+
+  // * open context of this message per spec 
+  // @see  https://edstem.org/au/courses/7656/discussion/887137
+  public static final String DATA_ACCESS_ERROR = 
+    "Could not access the designated file.\nGoodbye!";
+
+  
 }
