@@ -6,4 +6,7 @@
 
 public class DataFormatException extends Exception {
 
+  public DataFormatException(String message) {
+    super(OutputErrors.DATA_FORMAT_EXCEPTION, new Throwable(message));
+  }
 }

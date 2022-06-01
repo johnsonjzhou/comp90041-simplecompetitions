@@ -6,4 +6,7 @@
 
 public class DataAccessException extends Exception {
 
+  public DataAccessException(String message) {
+    super(OutputErrors.DATA_ACCESS_ERROR, new Throwable(message));
+  }
 }
