@@ -8,9 +8,14 @@
  * For testing purposes only 
  */
 public class Test {
-  public static void main(String[] param) {
+  public static void main(String[] params) {
     
-    userInput();
+    // userInput();
+    // 
+    String[] test = {"111111", "1a1111", "1114345", "12353", "001101"};
+    for (String t : test) {
+      stringMatcher(t);
+    }
   }
 
   public static void userInput() {
@@ -25,5 +30,10 @@ public class Test {
     } catch(NonNumberException e) {
       System.out.println(e.getMessage());
     }
+  }
+
+  public static void stringMatcher(String test) {
+    boolean match = test.matches("^\\d{6}$");
+    System.out.println(match);
   }
 }
