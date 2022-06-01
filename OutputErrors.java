@@ -44,5 +44,6 @@ public final class OutputErrors {
   public static final String DATA_ACCESS_ERROR = 
     "Could not access the designated file.\nGoodbye!";
 
-  
+  public static final String DATA_FORMAT_EXCEPTION = 
+    "Data file is not in expected format.\nGoodbye!";
 }
