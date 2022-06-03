@@ -45,9 +45,10 @@ public class Test {
     String csv2 = "111111,,john@abc.com";
     String csv3 = "11111,John,john@abc.com";
     String csv4 = "111111,John,";
+    String csv5 = ",John,john@abc.com";
 
     try {
-      Member m = new Member(csv4);
+      Member m = new Member(csv5);
       System.out.println(m);
 
     } catch (DataFormatException e) {
