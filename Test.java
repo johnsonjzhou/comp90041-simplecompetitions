@@ -17,7 +17,8 @@ public class Test {
     //   stringMatcher(t);
     // }
     // loadMember();
-    loadBill();
+    // loadBill();
+    dataProvider();
     
   }
 
@@ -73,6 +74,16 @@ public class Test {
       System.out.println(b);
 
     } catch (DataFormatException e) {
+      System.out.println(e.getCause());
+      System.out.println(e.getMessage());
+    }
+  }
+
+  public static void dataProvider() {
+    try {
+      DataProvider data = new DataProvider("members.csv", "bills.csv");
+      System.out.println(data);
+    } catch (DataAccessException | DataFormatException e) {
       System.out.println(e.getCause());
       System.out.println(e.getMessage());
     }
