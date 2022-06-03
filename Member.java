@@ -10,6 +10,9 @@ public class Member implements CommaSeparated {
   private String name;
   private String email;
 
+  /**
+   * @param  csv  comma separate data from csv file, invokes parseCsv
+   */
   public Member(String csv) throws DataFormatException {
     this.parseCsv(csv);
   }
@@ -21,6 +24,8 @@ public class Member implements CommaSeparated {
    * @param  csv  comma separate data from csv file 
    */
   public void parseCsv(String csv) throws DataFormatException {
+    // 111111,John,john@abc.com 
+    
     String[] values = csv.split(",");
 
     // validate columns  
