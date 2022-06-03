@@ -48,7 +48,7 @@ public class FileIO {
     try {
       this.reader = new Scanner(new FileInputStream(file));
     } catch (FileNotFoundException | SecurityException e) {
-      throw new FileIOException("Could not open file for reading");
+      throw new FileIOException(String.format("Could not open %s for reading", file));
     }
   }
 
