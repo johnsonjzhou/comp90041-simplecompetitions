@@ -16,7 +16,8 @@ public class Test {
     // for (String t : test) {
     //   stringMatcher(t);
     // }
-    loadMember();
+    // loadMember();
+    loadBill();
     
   }
 
@@ -50,6 +51,26 @@ public class Test {
     try {
       Member m = new Member(csv5);
       System.out.println(m);
+
+    } catch (DataFormatException e) {
+      System.out.println(e.getCause());
+      System.out.println(e.getMessage());
+    }
+  }
+
+  public static void loadBill() {
+    // 100000,111111,300.5,false
+    // 100013,,400.5,false
+    // String csv = "100000,111111,300.5,false";
+    // String csv = "100000,111111,300.5,true";
+    // String csv = "100000,111111,30x3,true";
+    // String csv = "100000,111111,,false";
+    String csv = "100000,111111,300.5,";
+    // String csv = "100000,111111,300.5";
+    // String csv = "100013,,400.5,false";
+    try {
+      Bill b = new Bill(csv);
+      System.out.println(b);
 
     } catch (DataFormatException e) {
       System.out.println(e.getCause());
