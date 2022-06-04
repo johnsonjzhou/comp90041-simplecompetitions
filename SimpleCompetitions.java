@@ -3,11 +3,13 @@
 * Student ID: 1302442
 * LMS username: zhoujj
 */
+import java.util.ArrayList;
 
 public class SimpleCompetitions {
 
   private UserConsole console;
   private DataProvider data;
+  private ArrayList<Competition> competitions;
   private boolean testMode = true;
 
   public SimpleCompetitions() {
@@ -32,6 +34,7 @@ public class SimpleCompetitions {
     // todo run mode 
     
     this.loadDataFiles();
+    this.menuLoop();
   }
 
   /**
@@ -54,13 +57,65 @@ public class SimpleCompetitions {
     } catch (DataAccessException | DataFormatException e) {
       // @see  https://edstem.org/au/courses/7656/discussion/887137
       System.out.println(e.getMessage());
-      System.exit(1);
+      this.exit(1);
     }
   }
 
-  private void exit() {
+  private void menuLoop() {
+    menuLoop : while(true) {
+
+      System.out.println(OutputPrompts.MENU_SELECTION);
+      for (String option : OutputPrompts.MENU_OPTIONS) {
+        System.out.println(option);
+      }
+
+      try {
+        this.console.clearBuffer();
+        int selection = this.console.readBufferedNextInt();
+        this.console.clearBuffer();
+
+        switch(selection) {
+          case 1: 
+            // todo  create new competition
+            continue menuLoop;
+
+          case 2:
+            // todo  add new entries
+            continue menuLoop;
+
+          case 3:
+            // todo  draw winners 
+            continue menuLoop;
+
+          case 4: 
+            // todo  get summary report
+            continue menuLoop;
+
+          case 5:
+            this.exit();
+            break menuLoop;
+
+          default: 
+            System.out.println(OutputErrors.UNSUPPORTED_OPTION);
+            continue menuLoop;
+        }
+      } catch (NonNumberException e) {
+        System.out.println(OutputErrors.NUMBER_EXPECTED);
+        continue menuLoop;
+      } catch (NullPointerException e) {
+        this.exit(1);
+      }
+    }
+  }
+
+  private void exit(int status) {
     this.console.close();
     System.out.println(OutputPrompts.GOODBYE);
+    System.exit(status);
+  }
+
+  private void exit() {
+    this.exit(0);
   }
 
   /** public */
