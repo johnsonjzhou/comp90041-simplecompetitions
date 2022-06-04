@@ -106,8 +106,65 @@ public class SimpleCompetitions {
       } catch (NonNumberException e) {
         System.out.println(OutputErrors.NUMBER_EXPECTED);
         continue menuLoop;
+      } catch (MenuException e) {
+        System.out.println(e.getMessage());
+        continue menuLoop;
       } catch (NullPointerException e) {
         this.exit(1);
+      }
+    }
+  }
+
+  /**
+   * Creates a new competition
+   * @throws  MenuException  if there is already an active competition 
+   */
+  private void addNewCompetition() throws MenuException {
+    int sequence = 1;
+    String type, name;
+
+    // check all current competitions and see if they are active 
+    // and get the highest competition id number to advance the sequence 
+    for (Competition competition : this.competitions) {
+      if (competition.isActive()) {
+        throw new MenuException(OutputErrors.CONCURRENT_COMPETITION);
+      }
+      
+      if (competition.getId() >= sequence) {
+        sequence = competition.getId();
+      }
+    }
+
+    // create the competition
+    System.out.println(OutputPrompts.COMPETITION_TYPE);
+
+    typeLoop : while(true) {
+      this.console.clearBuffer();
+      type = this.console.readBufferedNext();
+      this.console.clearBuffer();
+
+      switch(type) {
+        case "l":
+          System.out.println(OutputPrompts.COMPETITION_NAME);
+          name = this.console.readBufferedNext();
+          this.console.clearBuffer();
+          LuckyNumbersCompetition lucky = new LuckyNumbersCompetition(sequence, name);
+          System.out.println(lucky.toString());
+          this.competitions.add(lucky);
+          break typeLoop;
+        
+        case "r":
+          System.out.println(OutputPrompts.COMPETITION_NAME);
+          name = this.console.readBufferedNext();
+          this.console.clearBuffer();
+          RandomPickCompetition random = new RandomPickCompetition(sequence, name);
+          System.out.println(random.toString());
+          this.competitions.add(random);
+          break typeLoop;
+
+        default: 
+          System.out.println(OutputErrors.INVALID_COMPETITION_TYPE);
+          continue typeLoop;
       }
     }
   }
@@ -123,11 +180,6 @@ public class SimpleCompetitions {
   }
 
   /** public */
-
-  // todo
-  // public Competition addNewCompetition() {
-      
-  // }
 
   public void report() {
     
