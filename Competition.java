@@ -24,6 +24,10 @@ public abstract class Competition {
     this.active = true;
   }
 
+  public int getId() {
+    return this.id;
+  }
+
   public boolean isActive() {
     return this.active;
   }
@@ -33,5 +37,14 @@ public abstract class Competition {
   public abstract void drawWinners();
 
   public void report() {
+  }
+
+  /**
+   * @param  type  invoke using this.getClass().getSimpleName() 
+   */
+  public String toString(String type) {
+    return String.format(OutputFormat.COMPETITION_CREATED, 
+      this.id, this.name, type
+    );
   }
 }

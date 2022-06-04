@@ -25,4 +25,10 @@ public class LuckyNumbersCompetition extends Competition {
   public void drawWinners() {
 
   }
+
+  /** override */
+  @Override 
+  public String toString() {
+    return super.toString(this.getClass().getSimpleName());
+  }
 }

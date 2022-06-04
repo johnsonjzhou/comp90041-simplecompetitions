@@ -59,4 +59,10 @@ public class RandomPickCompetition extends Competition {
     * to complete the logic.
     */
   }
+
+  /** override */
+  @Override 
+  public String toString() {
+    return super.toString(this.getClass().getSimpleName());
+  }
 }
