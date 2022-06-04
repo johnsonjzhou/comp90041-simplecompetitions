@@ -6,6 +6,14 @@
 
 public class LuckyNumbersCompetition extends Competition {
 
+  /**
+   * @param  id  the competition id
+   * @param  name  the competition name
+   */
+  public LuckyNumbersCompetition(int id, String name) {
+    super(id, name);
+  }
+
   /** Competition */
 
   // todo
