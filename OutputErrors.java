@@ -18,6 +18,9 @@ public final class OutputErrors {
   public static final String NO_ACTIVE_COMPETITION = 
     "There is no active competition. Please create one!";
 
+  public static final String CONCURRENT_COMPETITION = 
+    "There is an active competition. SimpleCompetitions does not support concurrent competitions!";
+
   public static final String NO_COMPETITION_CREATED = 
     "No competition has been created yet!";
 
