@@ -14,6 +14,7 @@ public class SimpleCompetitions {
 
   public SimpleCompetitions() {
     this.console = new UserConsole();
+    this.competitions = new ArrayList<Competition>();
   }
 
   /** private */
@@ -61,6 +62,9 @@ public class SimpleCompetitions {
     }
   }
 
+  /**
+   * Main menu loop 
+   */
   private void menuLoop() {
     menuLoop : while(true) {
 
