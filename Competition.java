@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public abstract class Competition {
-  
+
   private String name; //competition name
   private int id; //competition identifier
+  private boolean active;
 
   /**
    * @param  id  the competition id
@@ -20,6 +21,11 @@ public abstract class Competition {
   public Competition(int id, String name) {
     this.id = id;
     this.name = name;
+    this.active = true;
+  }
+
+  public boolean isActive() {
+    return this.active;
   }
 
   public abstract void addEntries();
