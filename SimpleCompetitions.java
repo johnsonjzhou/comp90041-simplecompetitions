@@ -80,7 +80,7 @@ public class SimpleCompetitions {
 
         switch(selection) {
           case 1: 
-            // todo  create new competition
+            this.addNewCompetition();
             continue menuLoop;
 
           case 2:
@@ -144,28 +144,30 @@ public class SimpleCompetitions {
       this.console.clearBuffer();
 
       switch(type) {
-        case "l":
-          System.out.println(OutputPrompts.COMPETITION_NAME);
-          name = this.console.readBufferedNext();
-          this.console.clearBuffer();
-          LuckyNumbersCompetition lucky = new LuckyNumbersCompetition(sequence, name);
-          System.out.println(lucky.toString());
-          this.competitions.add(lucky);
-          break typeLoop;
-        
-        case "r":
-          System.out.println(OutputPrompts.COMPETITION_NAME);
-          name = this.console.readBufferedNext();
-          this.console.clearBuffer();
-          RandomPickCompetition random = new RandomPickCompetition(sequence, name);
-          System.out.println(random.toString());
-          this.competitions.add(random);
+        case "l": case"r": 
           break typeLoop;
 
         default: 
           System.out.println(OutputErrors.INVALID_COMPETITION_TYPE);
           continue typeLoop;
       }
+    }
+
+    System.out.println(OutputPrompts.COMPETITION_NAME);
+    name = this.console.readBufferedNext();
+    this.console.clearBuffer();
+
+    switch(type) {
+      case "l": 
+        this.competitions.add(new LuckyNumbersCompetition(sequence, name));
+        break;
+
+      case "r":
+        this.competitions.add(new RandomPickCompetition(sequence, name));
+        break;
+
+      default:
+        throw new MenuException(OutputErrors.COMPETITION_CREATE_ERROR);
     }
   }
 

@@ -12,6 +12,7 @@ public class LuckyNumbersCompetition extends Competition {
    */
   public LuckyNumbersCompetition(int id, String name) {
     super(id, name);
+    this.announceCreated(this.getClass().getSimpleName());
   }
 
   /** Competition */
@@ -24,11 +25,5 @@ public class LuckyNumbersCompetition extends Competition {
   //todo
   public void drawWinners() {
 
-  }
-
-  /** override */
-  @Override 
-  public String toString() {
-    return super.toString(this.getClass().getSimpleName());
   }
 }

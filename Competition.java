@@ -42,9 +42,11 @@ public abstract class Competition {
   /**
    * @param  type  invoke using this.getClass().getSimpleName() 
    */
-  public String toString(String type) {
-    return String.format(OutputFormat.COMPETITION_CREATED, 
-      this.id, this.name, type
+  public void announceCreated(String type) {
+    System.out.println(
+      String.format(OutputFormat.COMPETITION_CREATED, 
+        this.id, this.name, type
+      )
     );
   }
 }

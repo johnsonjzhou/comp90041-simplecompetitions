@@ -18,6 +18,7 @@ public class RandomPickCompetition extends Competition {
    */
   public RandomPickCompetition(int id, String name) {
     super(id, name);
+    this.announceCreated(this.getClass().getSimpleName());
   }
 
   /** Competition */
@@ -58,11 +59,5 @@ public class RandomPickCompetition extends Competition {
     * one customer gets at most one winning entry. Add your code
     * to complete the logic.
     */
-  }
-
-  /** override */
-  @Override 
-  public String toString() {
-    return super.toString(this.getClass().getSimpleName());
   }
 }
