@@ -84,7 +84,7 @@ public class SimpleCompetitions {
             continue menuLoop;
 
           case 2:
-            // todo  add new entries
+            this.addEntries();
             continue menuLoop;
 
           case 3:
@@ -169,6 +169,28 @@ public class SimpleCompetitions {
       default:
         throw new MenuException(OutputErrors.COMPETITION_CREATE_ERROR);
     }
+  }
+
+  /**
+   * @return  the active competition
+   * @throws  MenuException  if no active competition is found 
+   */
+  private Competition getActiveCompetition() throws MenuException {
+    for (Competition competition : this.competitions) {
+      if (competition.isActive()) {
+        return competition;
+      }
+    }
+
+    throw new MenuException(OutputErrors.NO_ACTIVE_COMPETITION);
+  }
+
+  /**
+   * Creates entries by invoking the addEntries method of the active Competition 
+   */
+  private void addEntries() throws MenuException {
+    Competition activeCompetition = this.getActiveCompetition();
+    activeCompetition.addEntries();
   }
 
   private void exit(int status) {
