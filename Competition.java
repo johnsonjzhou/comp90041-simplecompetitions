@@ -32,10 +32,6 @@ public abstract class Competition {
     return this.active;
   }
 
-  public abstract void addEntries();
-
-  public abstract void drawWinners();
-
   public void report() {
   }
 
@@ -49,4 +45,10 @@ public abstract class Competition {
       )
     );
   }
+
+  /** abstract */
+
+  public abstract void addEntries();
+
+  public abstract void drawWinners();
 }
