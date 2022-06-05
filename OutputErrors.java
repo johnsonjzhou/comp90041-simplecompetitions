@@ -45,8 +45,8 @@ public final class OutputErrors {
   // * open context of this message per spec 
   // @see  https://edstem.org/au/courses/7656/discussion/887137
   public static final String DATA_ACCESS_ERROR = 
-    "Could not access the designated file.\nGoodbye!";
+    "Could not access the designated file.";
 
   public static final String DATA_FORMAT_EXCEPTION = 
-    "Data file is not in expected format.\nGoodbye!";
+    "Data file is not in expected format.";
 }
