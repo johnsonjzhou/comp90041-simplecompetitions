@@ -30,6 +30,9 @@ public final class OutputErrors {
   public static final String INVALID_COMPETITION_TYPE = 
     "Invalid competition type! Please choose again.";
 
+  public static final String COMPETITION_CREATE_ERROR = 
+    "Could not create competition. Please try again.";
+
   public static final String BILL_NUMBER = 
     "Invalid bill id! It must be a 6-digit number. Please try again.";
 
