@@ -8,7 +8,7 @@ public final class OutputFormat {
   
   // Competition ID: 1, Competition Name: Easter Holidays, Type: RandomPickCompetition
   public static final String COMPETITION_CREATED = 
-    "Competition ID: %d, Competition Name: %s, Type: $s";
+    "Competition ID: %d, Competition Name: %s, Type: %s";
 
   // This bill ($300.5) is eligible for 6 entries.
   public static final String BILL_ELIGIBLE = 
