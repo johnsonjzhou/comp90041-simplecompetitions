@@ -18,8 +18,8 @@ public class Test {
     // }
     // loadMember();
     // loadBill();
-    dataProvider();
-    
+    //dataProvider();
+    eligibleAmount();
   }
 
   public static void userInput() {
@@ -86,6 +86,18 @@ public class Test {
     } catch (DataAccessException | DataFormatException e) {
       System.out.println(e.getCause());
       System.out.println(e.getMessage());
+    }
+  }
+
+  public static void eligibleAmount() {
+    double[] tests = { 299.9, 50.1, 50.5, 50, 49.9 };
+    for (double billAmount : tests) {
+      int minEntry = 50;
+      int entryQuantity = Math.floorDiv((int) Math.floor(billAmount),minEntry);
+      int e2 = Math.floorDiv((int) billAmount, minEntry);
+      System.out.println(entryQuantity);
+      System.out.println(e2);
+      System.out.println();
     }
   }
 }
