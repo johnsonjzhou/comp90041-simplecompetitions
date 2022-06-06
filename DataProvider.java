@@ -62,6 +62,31 @@ public class DataProvider {
   /** public */
 
   /**
+   * @param  billId  id of the bill to retrieve
+   * @return  the Bill designated by the billId or null
+   */
+  public Bill getBill(String billId) {
+    for (Bill bill : this.bills) {
+      if (bill.equals(billId)) {
+        return bill;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * @return  <code>True</code> if memberId matches a Member 
+   */
+  public boolean isValidMember(String memberId) {
+    for (Member member : this.members) {
+      if (member.equals(memberId)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * @return  brief summary of class showing number of members and bills 
    */
   public String getSummary() {
