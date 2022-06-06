@@ -86,6 +86,42 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * @return  the member id associated with this bill 
+   */
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  /**
+   * @return  the amount of this bill 
+   */
+  public double getAmount() {
+    return this.amount;
+  }
+
+  /**
+   * @return  <code>True</code> if the bill has been used for an entry 
+   */
+  public boolean isUsed() {
+    return this.used;
+  }
+
+  /**
+   * Marks the bill as being used for an entry 
+   */
+  public void markUsed() {
+    this.used = true;
+  }
+
+  /**
+   * @param  billId  the bill id to compare with 
+   * @return  <code>True</code> if id equals provided billId 
+   */
+  public boolean equals(String billId) {
+    return this.id.equals(billId);
+  }
+
+  /**
    * @return  bill information as csv by invoking toCsv() method
    */
   @Override
