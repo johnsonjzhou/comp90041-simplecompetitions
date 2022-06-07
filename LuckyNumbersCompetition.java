@@ -18,8 +18,11 @@ public class LuckyNumbersCompetition extends Competition {
   /** Competition */
 
   // todo
-  public void addEntries() {
-
+  public void addEntries(UserConsole console, DataProvider data) {
+    int entries = this.validateBill(console, data);
+    
+    // return to main menu if bill is not eligible for any entries 
+    if (entries < 1) { return; }
   }
 
   //todo

@@ -190,7 +190,7 @@ public class SimpleCompetitions {
    */
   private void addEntries() throws MenuException {
     Competition activeCompetition = this.getActiveCompetition();
-    activeCompetition.addEntries();
+    activeCompetition.addEntries(this.console, this.data);
   }
 
   private void exit(int status) {

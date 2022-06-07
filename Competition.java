@@ -106,7 +106,7 @@ public abstract class Competition {
 
   /** abstract */
 
-  public abstract void addEntries();
+  public abstract void addEntries(UserConsole console, DataProvider data);
 
   public abstract void drawWinners();
 }
