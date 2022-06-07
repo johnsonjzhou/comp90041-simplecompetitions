@@ -46,11 +46,11 @@ public class SimpleCompetitions {
     String memberFile, billFile; 
 
     System.out.println(OutputPrompts.MEMBER_FILE);
-    memberFile = console.readBufferedNext();
+    memberFile = console.readBufferedNext(true);
     console.clearBuffer();
 
     System.out.println(OutputPrompts.BILL_FILE);
-    billFile = console.readBufferedNext();
+    billFile = console.readBufferedNext(true);
     console.clearBuffer();
 
     try {
@@ -154,7 +154,7 @@ public class SimpleCompetitions {
     }
 
     System.out.println(OutputPrompts.COMPETITION_NAME);
-    name = this.console.readBufferedNext();
+    name = this.console.readBufferedNext(true);
     this.console.clearBuffer();
 
     switch(type) {

@@ -34,10 +34,11 @@ public class UserConsole {
    * Creates a read buffer by reading the entire input line 
    * and splitting at the spaces. 
    * This then enables to step through each of the input items iteratively. 
+   * @param  preserveCase  <code>False</code> turns input into lower case 
    * @return  the next string from the buffer 
    * @throws  NoSuchElementException  when directed inputs unexpectedly end 
    */
-  public String readBufferedNext() throws NoSuchElementException {
+  public String readBufferedNext(boolean preserveCase) throws NoSuchElementException {
     // return and remove the first element in the inputBuffer
     if (this.inputBuffer.size() > 0) {
       return this.inputBuffer.remove(0);
@@ -46,9 +47,16 @@ public class UserConsole {
     // receive from the console and add to buffer
     String input = this.stdin.nextLine();
     for (String next : input.split(" ")) {
-      this.inputBuffer.add(next.toLowerCase());
+      this.inputBuffer.add(preserveCase ? next : next.toLowerCase());
     }
-    return this.readBufferedNext();
+    return this.readBufferedNext(preserveCase);
+  }
+
+  /**
+   * Invokes readBufferNext with preserveCase parameter set to False 
+   */
+  public String readBufferedNext() throws NoSuchElementException {
+    return this.readBufferedNext(false);
   }
 
   /**
