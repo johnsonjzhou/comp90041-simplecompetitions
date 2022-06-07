@@ -26,6 +26,8 @@ public class RandomPickCompetition extends Competition {
   // todo 
   public void addEntries(UserConsole console, DataProvider data) {
     int entries = this.validateBill(console, data);
+    // follow through line break from validateBill
+    System.out.println();
     
     // return to main menu if bill is not eligible for any entries 
     if (entries < 1) { return; }

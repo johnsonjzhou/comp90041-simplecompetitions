@@ -53,6 +53,9 @@ public final class OutputPrompts {
   public static final String ENTRIES_GENERATED = 
     "The following entries have been automatically generated:";
 
+  public static final String MANUAL_ENTRIES = 
+    "How many manual entries did the customer fill up?:";
+
   public static final String ADD_MORE_ENTRIES = 
     "Add more entries (Y/N)?";
 

@@ -96,9 +96,8 @@ public abstract class Competition {
       // 5) check if the bill amount is eligible
       double billAmount = bill.getAmount();
       int entryQuantity = Math.floorDiv((int) billAmount, minEntry);
-      System.out.println(
-        String.format(OutputFormat.BILL_ELIGIBLE, billAmount, entryQuantity)
-      );
+      System.out.printf(OutputFormat.BILL_ELIGIBLE, billAmount, entryQuantity);
+      //! -- no line break here 
       
       return entryQuantity;
     }
