@@ -19,7 +19,8 @@ public class Test {
     // loadMember();
     // loadBill();
     //dataProvider();
-    eligibleAmount();
+    //eligibleAmount();
+    numbersEntry();
   }
 
   public static void userInput() {
@@ -98,6 +99,23 @@ public class Test {
       System.out.println(entryQuantity);
       System.out.println(e2);
       System.out.println();
+    }
+  }
+
+  public static void numbersEntry() {
+    // int[] numbers = { 1, 2, 3, 4, 10, 7, 5 };
+    // int[] numbers = { 1, 2, 3, 4, 10, 7, 45 };
+    // int[] numbers = { 1, 2, 3, 4, 10, 7, 5, 6 };
+    // int[] numbers = { 1, 2, 3, 4, 10, 7 };
+    NumbersEntry entry = new NumbersEntry(1, "123456", "654321");
+    try {
+      for (int num : numbers) {
+        entry.stage(num);
+      }
+      entry.create();
+      System.out.println(entry.summary());
+    } catch (InvalidEntryException e) {
+      System.out.println(e.getMessage());
     }
   }
 }
