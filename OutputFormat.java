@@ -15,7 +15,7 @@ public final class OutputFormat {
     "This bill ($%.1f) is eligible for %d entries.";
 
   // Entry ID: 1     
-  public static final String GENERATED_ENTRY = 
+  public static final String ENTRY_ID = 
     "Entry ID: %-6d";  //! trailing whitespace 
 
   // Member ID: 444444, Member Name: Long, Prize: 50000
