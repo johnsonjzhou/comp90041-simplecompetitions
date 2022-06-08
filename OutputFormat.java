@@ -25,7 +25,7 @@ public final class OutputFormat {
   // Numbers:  5  7 16 21 23 26 28 [Auto]
   // * fixed 2-width nunmbers 
   public static final String ENTRY_NUMBERS = 
-    "Numbers: %2d %2d %2d %2d %2d %2d %2d %s";
+    "Numbers: %2d %2d %2d %2d %2d %2d %2d";
 
   // --> Entry ID: 3, Numbers:  2  7 14 18 22 25 35 [Auto]
   public static final String ENTRY_SUMMARY = 
