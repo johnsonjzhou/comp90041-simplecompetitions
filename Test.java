@@ -20,7 +20,8 @@ public class Test {
     // loadBill();
     //dataProvider();
     //eligibleAmount();
-    numbersEntry();
+    // numbersEntry();
+    autoNumbersEntry();
   }
 
   public static void userInput() {
@@ -117,5 +118,21 @@ public class Test {
     } catch (InvalidEntryException e) {
       System.out.println(e.getMessage());
     }
+  }
+
+  public static void autoNumbersEntry() {
+    AutoNumbersEntry entry = new AutoNumbersEntry(1, "123456", "654321");
+    try {
+      entry.createNumbers(7);
+      System.out.println(entry.summary());
+      // entry.createNumbers(2);
+      // System.out.println(entry.summary());
+      // entry.createNumbers(1);
+      // System.out.println(entry.summary());
+    } catch (InvalidEntryException e) {
+      System.out.println(e.getMessage());
+    }
+    
+
   }
 }
