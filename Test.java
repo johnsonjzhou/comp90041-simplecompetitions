@@ -103,7 +103,7 @@ public class Test {
   }
 
   public static void numbersEntry() {
-    // int[] numbers = { 1, 2, 3, 4, 10, 7, 5 };
+    int[] numbers = { 1, 2, 3, 4, 10, 7, 5 };
     // int[] numbers = { 1, 2, 3, 4, 10, 7, 45 };
     // int[] numbers = { 1, 2, 3, 4, 10, 7, 5, 6 };
     // int[] numbers = { 1, 2, 3, 4, 10, 7 };
