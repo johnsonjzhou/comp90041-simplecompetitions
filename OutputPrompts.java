@@ -56,6 +56,12 @@ public final class OutputPrompts {
   public static final String MANUAL_ENTRIES = 
     "How many manual entries did the customer fill up?:";
 
+  public static final String LUCKYNUMBER_ENTRY = 
+    "Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.";
+
+  public static final String ENTRIES_ADDED = 
+    "The following entries have been added:";
+
   public static final String ADD_MORE_ENTRIES = 
     "Add more entries (Y/N)?";
 
