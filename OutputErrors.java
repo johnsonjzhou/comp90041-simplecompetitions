@@ -53,11 +53,11 @@ public final class OutputErrors {
   public static final String DATA_FORMAT_EXCEPTION = 
     "Data file is not in expected format.";
 
-  public static final String ENTRY_GREATER_7 = 
-    "Invalid input! More than 7 numbers are provided. Please try again!";
+  public static final String ENTRY_GREATERTHAN = 
+    "Invalid input! More than %d numbers are provided. Please try again!";
 
-  public static final String ENTRY_LESS_7 = 
-    "Invalid input! Fewer than 7 numbers are provided. Please try again!";
+  public static final String ENTRY_LESSTHAN = 
+    "Invalid input! Fewer than %d numbers are provided. Please try again!";
 
   public static final String ENTRY_NO_DUPLICATES = 
     "Invalid input! All numbers must be different!";
