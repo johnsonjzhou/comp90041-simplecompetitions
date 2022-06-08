@@ -19,7 +19,7 @@ public class LuckyNumbersCompetition extends Competition {
 
   // todo
   public void addEntries(UserConsole console, DataProvider data) {
-        int entries = this.validateBill(console, data);
+    int entries = this.validateBill(console, data);
     
     // return to main menu if bill is not eligible for any entries 
     if (entries < 1) { 
