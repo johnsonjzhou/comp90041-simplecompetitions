@@ -43,6 +43,13 @@ public class NumbersEntry extends Entry {
   }
 
   /**
+   * Clears the staged numbers 
+   */
+  public void clearStaged() {
+    this.stagedNumbers.clear();
+  }
+
+  /**
    * Validates the entry by checking the quantity of numbers that have been added
    * @throws  InvalidEntryException  if numbers are less than NUMBER_COUNT
    * @throws  InvalidEntryException  if numbers are more than NUMBER_COUNT
