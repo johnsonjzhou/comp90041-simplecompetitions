@@ -4,23 +4,23 @@
  * LMS username: zhoujj
  */
 
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public abstract class Competition {
 
+  private static final int MIN_ENTRY_AMOUNT = 50;
   private String name; //competition name
   private int id; //competition identifier
   private boolean active;
+  private boolean testMode;
 
   /**
    * @param  id  the competition id
    * @param  name  the competition name
+   * @param  testMode  whether in test mode 
    */
-  public Competition(int id, String name) {
+  public Competition(int id, String name, boolean testMode) {
     this.id = id;
     this.name = name;
+    this.testMode = testMode;
     this.active = true;
   }
 
@@ -32,7 +32,22 @@ public abstract class Competition {
     return this.active;
   }
 
+  /**
+   * @param  testMode  set testMode flag to specified 
+   */
+  public void setTestMode(boolean testMode) {
+    this.testMode = testMode;
+  }
+
+  /**
+   * @return  the state of testMode flag 
+   */
+  public boolean isTestMode() {
+    return this.testMode;
+  }
+
   public void report() {
+    //todo
   }
 
   /**
@@ -47,10 +62,11 @@ public abstract class Competition {
   }
 
   /**
-   * Allows user to input bill number and validate against data 
-   * @return  number of valid entries permitted, range 0 to n 
+   * Allows user to input bill number and validate against data. 
+   * This method is *blocking* as the user must provide a valid bill Id.
+   * @return  the bill if it passes all of the validation criteria 
    */
-  public int validateBill(UserConsole console, DataProvider data) {
+  public Bill selectBill(UserConsole console, DataProvider data) {
     // https://edstem.org/au/courses/7656/discussion/892222
     // The order is: 1) checking for valid bill id, 
     // 2) checking if the bill exists, 
@@ -59,9 +75,7 @@ public abstract class Competition {
     // 5) check if the bill amount is eligible.
     
     console.clearBuffer();
-    int minEntry = 50;
 
-    // ? Can the user "escape" from this? 
     billLoop : while(true) {
       System.out.println(OutputPrompts.BILL_ID);
 
@@ -95,12 +109,20 @@ public abstract class Competition {
 
       // 5) check if the bill amount is eligible
       double billAmount = bill.getAmount();
-      int entryQuantity = Math.floorDiv((int) billAmount, minEntry);
+      int entryQuantity = this.calculateEligibleEntries(billAmount);
       System.out.printf(OutputFormat.BILL_ELIGIBLE, billAmount, entryQuantity);
       //! -- no line break here 
       
-      return entryQuantity;
+      return bill;
     }
+  }
+
+  /**
+   * @param  billAmount  the amount from the bill 
+   * @return  number of entries the bill is eligible for based on MIN_ENTRY_AMOUNT 
+   */
+  public int calculateEligibleEntries(double billAmount) {
+    return Math.floorDiv((int) billAmount, MIN_ENTRY_AMOUNT);
   }
 
   /** abstract */

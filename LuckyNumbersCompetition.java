@@ -12,9 +12,10 @@ public class LuckyNumbersCompetition extends Competition {
   /**
    * @param  id  the competition id
    * @param  name  the competition name
+   * @param  testMode  whether in test mode 
    */
-  public LuckyNumbersCompetition(int id, String name) {
-    super(id, name);
+  public LuckyNumbersCompetition(int id, String name, boolean testMode) {
+    super(id, name, testMode);
     this.entries = new ArrayList<Entry>();
     this.announceCreated(this.getClass().getSimpleName());
   }

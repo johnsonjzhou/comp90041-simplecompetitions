@@ -10,7 +10,7 @@ public class SimpleCompetitions {
   private UserConsole console;
   private DataProvider data;
   private ArrayList<Competition> competitions;
-  private boolean testMode = true;
+  private boolean testMode = false;
 
   public SimpleCompetitions() {
     this.console = new UserConsole();
@@ -28,11 +28,22 @@ public class SimpleCompetitions {
 
     // todo file load mode 
     
-    System.out.println(OutputPrompts.RUN_MODE);
-    testMode = console.readBufferedNext();
-    console.clearBuffer();
+    modeLoop : while(true) {
+      System.out.println(OutputPrompts.RUN_MODE);
+      testMode = console.readBufferedNext();
+      console.clearBuffer();
 
-    // todo run mode 
+      switch (testMode) {
+        case "t":
+          this.testMode = true;
+        case "n": 
+          break modeLoop;
+
+        default:
+          System.out.println(OutputErrors.UNSUPPORTED_OPTION);
+          continue modeLoop;
+      }
+    }
     
     this.loadDataFiles();
     this.menuLoop();
@@ -159,11 +170,11 @@ public class SimpleCompetitions {
 
     switch(type) {
       case "l": 
-        this.competitions.add(new LuckyNumbersCompetition(sequence, name));
+        this.competitions.add(new LuckyNumbersCompetition(sequence, name, this.testMode));
         break;
 
       case "r":
-        this.competitions.add(new RandomPickCompetition(sequence, name));
+        this.competitions.add(new RandomPickCompetition(sequence, name, this.testMode));
         break;
 
       default:
