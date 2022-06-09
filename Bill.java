@@ -86,6 +86,13 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * @return  bill id
+   */
+  public String getId() {
+    return this.id;
+  }
+
+  /**
    * @return  the member id associated with this bill 
    */
   public String getMemberId() {
