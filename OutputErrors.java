@@ -64,4 +64,13 @@ public final class OutputErrors {
 
   public static final String ENTRY_NOT_IN_RANGE = 
     "Invalid input! All numbers must be in the range from 1 to 35!";
+
+  public static final String ENTRY_LIMIT_EXCEEDED = 
+    "Manual entries cannot be greater than total eligible entries. Please try again!";
+
+  public static final String ENTRY_CREATE_ERROR = 
+    "Could not create the entry. Please try again!";
+
+  public static final String ENTRY_GENERATE_ERROR = 
+    "An error occurred. An entry could not be generated.";
 }
