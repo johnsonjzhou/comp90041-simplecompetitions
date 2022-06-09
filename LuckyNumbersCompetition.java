@@ -106,6 +106,7 @@ public class LuckyNumbersCompetition extends Competition {
       }
 
       this.entries.add(manualEntry);
+      bill.markUsed();
     }
 
     // generate remaining entries automatically 
@@ -125,6 +126,7 @@ public class LuckyNumbersCompetition extends Competition {
         // should not reach here in normal circumstances
         System.out.println(OutputErrors.ENTRY_GENERATE_ERROR);
       }
+      bill.markUsed();
     }
 
     // print confirmation for all entries added 
