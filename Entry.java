@@ -33,6 +33,13 @@ public class Entry {
   }
 
   /**
+   * @return  the bill id associated with this entry 
+   */
+  public String getBillId() {
+    return this.billId;
+  }
+
+  /**
    * @return  summary of entry with id 
    * Entry ID: 2      
    */
