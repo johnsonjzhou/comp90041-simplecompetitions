@@ -6,6 +6,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.print.attribute.standard.NumberOfInterveningJobs;
+
 public class NumbersEntry extends Entry {
 
   private int[] numbers; 
@@ -75,6 +77,44 @@ public class NumbersEntry extends Entry {
     Arrays.sort(this.numbers);
 
     this.setValid();
+  }
+
+  /**
+   * @return  the numbers within the entry 
+   */
+  public int[] getNumbers() {
+    return this.numbers;
+  }
+
+  /**
+   * @param  otherEntry  another entry of the same type to match against 
+   * @return  the quantity of numbers that matches the otherEntry 
+   */
+  public int match(NumbersEntry otherEntry) {
+    int match = 0;
+    
+    int[] thisNumbers = this.getNumbers();
+    int[] otherNumbers = otherEntry.getNumbers();
+
+    int[] thisSpread = new int[MAX_NUMBER + 1];
+    int[] otherSpread = new int[MAX_NUMBER + 1];
+
+    for (int i = 0; i < NUMBER_COUNT; i++) {
+      try {
+        thisSpread[thisNumbers[i]] = 1;
+        otherSpread[otherNumbers[i]] = 1;
+      } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+        // should not impact on matching 
+      }
+    }
+
+    for (int i = 0; i < MAX_NUMBER; i++) {
+      if (thisSpread[i] == 1 && otherSpread[i] == 1) {
+        match++;
+      }
+    }
+
+    return match;
   }
 
   /**
