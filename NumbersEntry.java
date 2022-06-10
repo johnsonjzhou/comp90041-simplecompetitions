@@ -116,6 +116,21 @@ public class NumbersEntry extends Entry {
   }
 
   /**
+   * @return  summary of numbers in a formatted string 
+   */
+  public String numbersSummary() {
+    return String.format(OutputFormat.ENTRY_NUMBERS, 
+      this.numbers[0], 
+      this.numbers[1], 
+      this.numbers[2], 
+      this.numbers[3], 
+      this.numbers[4], 
+      this.numbers[5], 
+      this.numbers[6]
+    );
+  }
+
+  /**
    * @return  summary of entry id and numbers if numbers have been created 
    */
   @Override
@@ -123,15 +138,7 @@ public class NumbersEntry extends Entry {
     String summary = super.summary();
 
     if (this.isValid()) {
-      String numbers = String.format(OutputFormat.ENTRY_NUMBERS, 
-        this.numbers[0], 
-        this.numbers[1], 
-        this.numbers[2], 
-        this.numbers[3], 
-        this.numbers[4], 
-        this.numbers[5], 
-        this.numbers[6]
-      );
+      String numbers = this.numbersSummary();
       summary += " " + numbers;
     }
     

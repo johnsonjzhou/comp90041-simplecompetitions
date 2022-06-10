@@ -3,9 +3,10 @@
  * Student ID: 1302442
  * LMS username: zhoujj
  */
-import java.util.ArrayList;
 
 public class LuckyNumbersCompetition extends Competition {
+
+  private final int[] prizeAllocation = { 0, 0, 50, 100, 500, 1000, 5000, 50000 };
 
   /**
    * @param  id  the competition id
@@ -15,6 +16,31 @@ public class LuckyNumbersCompetition extends Competition {
   public LuckyNumbersCompetition(int id, String name, boolean testMode) {
     super(id, name, testMode);
     this.announceCreated(this.getClass().getSimpleName());
+  }
+
+  private void announceWinners(DataProvider data) {
+    System.out.println(OutputPrompts.WINNING_ENTRIES);
+    for (Entry entry : this.getWinningEntries()) {
+      String memberId = entry.getMemberId();
+      String memberName = data.getMemberName(memberId);
+      String numbersSummary = "";
+
+      if (entry instanceof NumbersEntry) {
+        numbersSummary = ((NumbersEntry) entry).numbersSummary();
+      }
+
+      if (entry instanceof AutoNumbersEntry) {
+        numbersSummary = ((AutoNumbersEntry) entry).numbersSummary();
+      }
+
+      System.out.println(String.format(OutputFormat.WINNING_ENTRY_LUCKYNUMBERS, 
+        memberId, memberName, entry.getPrize()
+      ));
+
+      System.out.println(String.format(OutputFormat.WINNING_ENTRY_DETAILS, 
+        entry.getId(), numbersSummary
+      ));
+    }
   }
 
   /** Competition */
@@ -150,8 +176,68 @@ public class LuckyNumbersCompetition extends Competition {
     }
   }
 
-  //todo
-  public void drawWinners() {
+  /**
+   * Draws winners and sets the competition to complete
+   * @param  data  data provider 
+   */
+  public void drawWinners(DataProvider data) {
+    // announce competition name and type 
+    this.announceCreated(this.getClass().getSimpleName());
 
+    // auto generate a winning entry 
+    AutoNumbersEntry winningEntry = new AutoNumbersEntry(0, "0", "0");
+    try {
+      if (this.isTestMode()) {
+        // in test mode, use the competition ID as the seed 
+        winningEntry.create(this.getId());
+      } else {
+        winningEntry.create();
+      }
+    } catch (InvalidEntryException e) {
+      // should not reach here 
+      System.out.println(OutputErrors.COMPETITION_DRAW_ERROR);
+      return;
+    }
+
+    // announce the winning entry 
+    System.out.println("Lucky " + winningEntry.numbersSummary());
+    
+    // compare all entries to generated winningEntry 
+    checkEntries : for (Entry entry : this.getEntries()) {
+      String memberId = entry.getMemberId();
+
+      // skip if entry already belongs to a winning member 
+      if (this.isWinner(memberId)) {
+        continue checkEntries;
+      }
+
+      // skip if entry type is not valid 
+      if (!(entry instanceof NumbersEntry)) {
+        continue checkEntries;
+      } 
+
+      int matchingNumbers = ((NumbersEntry) entry).match(winningEntry);
+
+      // skip if matchingNumbers don't conform to competition policy
+      if (matchingNumbers < 2 || matchingNumbers > 7) {
+        continue checkEntries;
+      }
+
+      entry.setPrize(this.prizeAllocation[matchingNumbers]);
+
+      this.addWinningEntry(entry);
+    }
+
+    // if no winners are found, hopefully not!
+    if (this.getWinningEntries().size() < 1) {
+      System.out.println(OutputErrors.COMPETITION_NO_WINNERS);
+      return;
+    }
+
+    // list winning entries 
+    this.announceWinners(data);
+
+    // mark competition as complete 
+    this.setComplete();
   }
 }

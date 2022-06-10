@@ -33,6 +33,12 @@ public final class OutputErrors {
   public static final String COMPETITION_CREATE_ERROR = 
     "Could not create competition. Please try again.";
 
+  public static final String COMPETITION_DRAW_ERROR = 
+    "An error occurred, competition has not been drawn. Please try again.";
+
+  public static final String COMPETITION_NO_WINNERS = 
+    "There are no lucky customers in this competition!";
+
   public static final String BILL_NUMBER = 
     "Invalid bill id! It must be a 6-digit number. Please try again.";
 

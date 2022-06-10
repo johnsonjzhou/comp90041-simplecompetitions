@@ -99,7 +99,7 @@ public class SimpleCompetitions {
             continue menuLoop;
 
           case 3:
-            // todo  draw winners 
+            this.drawWinners();
             continue menuLoop;
 
           case 4: 
@@ -202,6 +202,14 @@ public class SimpleCompetitions {
   private void addEntries() throws MenuException {
     Competition activeCompetition = this.getActiveCompetition();
     activeCompetition.addEntries(this.console, this.data);
+  }
+
+  /**
+   * Draws winners by invoking the drawWinners method of the active Competition 
+   */
+  private void drawWinners() throws MenuException {
+    Competition activeCompetition = this.getActiveCompetition();
+    activeCompetition.drawWinners(this.data);
   }
 
   private void exit(int status) {

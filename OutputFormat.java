@@ -19,17 +19,21 @@ public final class OutputFormat {
     "Entry ID: %-6d";  //! trailing whitespace 
 
   // Member ID: 444444, Member Name: Long, Prize: 50000
-  public static final String WINNING_ENTRY = 
+  public static final String WINNING_ENTRY_LUCKYNUMBERS = 
     "Member ID: %s, Member Name: %s, Prize: %d";
+
+  // --> Entry ID: 3, Numbers:  2  7 14 18 22 25 35 [Auto]
+  public static final String WINNING_ENTRY_DETAILS = 
+    "--> Entry ID: %d, %s";
+
+  // Member ID: 111111, Member Name: John, Entry ID: 5, Prize: 5000 
+  public static final String WINNING_ENTRY_RANDOMPICK = 
+    "Member ID: %s, Member Name: %s, Entry ID: %d, Prize: %d";
 
   // Numbers:  5  7 16 21 23 26 28 [Auto]
   // * fixed 2-width nunmbers 
   public static final String ENTRY_NUMBERS = 
     "Numbers: %2d %2d %2d %2d %2d %2d %2d";
-
-  // --> Entry ID: 3, Numbers:  2  7 14 18 22 25 35 [Auto]
-  public static final String ENTRY_SUMMARY = 
-    "--> Entry ID: %d, %s";
 
   public static final String SUMMARY_REPORT = 
     "----SUMMARY REPORT----\n+Number of completed competitions: %d\n+Number of active competitions: %d\n";

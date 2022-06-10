@@ -49,17 +49,8 @@ public class AutoNumbersEntry extends NumbersEntry {
     this.create(seed);
   }
 
-  /**
-   * @return  summary of entry id and numbers generated if valid 
-   */
   @Override
-  public String summary() {
-    String summary = super.summary(); 
-    
-    if (this.isValid()) {
-      summary += " [Auto]";
-    }
-    
-    return summary;
+  public String numbersSummary() {
+    return super.numbersSummary() + " [Auto]";
   }
 }

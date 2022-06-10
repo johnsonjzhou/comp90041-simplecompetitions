@@ -11,6 +11,7 @@ public abstract class Competition {
   private String name; //competition name
   private int id; //competition identifier
   private ArrayList<Entry> entries;
+  private ArrayList<Entry> winningEntries;
   private boolean active;
   private boolean testMode;
 
@@ -24,6 +25,7 @@ public abstract class Competition {
     this.name = name;
     this.testMode = testMode;
     this.entries = new ArrayList<Entry>();
+    this.winningEntries = new ArrayList<Entry>();
     this.active = true;
   }
 
@@ -39,6 +41,13 @@ public abstract class Competition {
    */
   public boolean isActive() {
     return this.active;
+  }
+
+  /**
+   * Marks the competition as compelte by setting the active flag to false 
+   */
+  public void setComplete() {
+    this.active = false;
   }
 
   /**
@@ -75,6 +84,35 @@ public abstract class Competition {
    */
   public int entrySize() {
     return this.entries.size();
+  }
+
+  /**
+   * Adds an entry to the winning entries list
+   * @param  entry  the entry to add 
+   */
+  public void addWinningEntry(Entry entry) {
+    this.winningEntries.add(entry);
+  }
+
+  /**
+   * Checks the winning entries for a particular memberId
+   * @param  memberId  the member id to check
+   * @return  <code>True</code> if member already holds a winning entry
+   */
+  public boolean isWinner(String memberId) {
+    for (Entry entry : this.winningEntries) {
+      if (entry.getMemberId().equals(memberId)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * @return  the list of winning entries 
+   */
+  public ArrayList<Entry> getWinningEntries() {
+    return this.winningEntries;
   }
 
   public void report() {
@@ -160,5 +198,5 @@ public abstract class Competition {
 
   public abstract void addEntries(UserConsole console, DataProvider data);
 
-  public abstract void drawWinners();
+  public abstract void drawWinners(DataProvider data);
 }

@@ -10,12 +10,21 @@ public class Entry {
   private String billId;
   private String memberId;
   private boolean valid;
+  private int prize; 
 
   public Entry(int entryId, String billId, String memberId) {
     this.entryId = entryId;
     this.billId = billId;
     this.memberId = memberId;
     this.valid = false;
+    this.prize = 0;
+  }
+
+  /**
+   * @return  the entry id
+   */
+  public int getId() {
+    return this.entryId;
   }
 
   /**
@@ -44,6 +53,20 @@ public class Entry {
    */
   public String getMemberId() {
     return this.memberId;
+  }
+
+  /**
+   * @param  set the prize to this value 
+   */
+  public void setPrize(int prize) {
+    this.prize = prize;
+  }
+
+  /**
+   * @return  the prize associated with this entry 
+   */
+  public int getPrize() {
+    return this.prize;
   }
 
   /**

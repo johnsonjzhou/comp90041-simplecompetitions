@@ -87,6 +87,20 @@ public class DataProvider {
   }
 
   /**
+   * @param  memberId  search for this member id
+   * @return  the member name, or a 0 length string if not found 
+   */
+  public String getMemberName(String memberId) {
+    String name = "";
+    for (Member member : this.members) {
+      if (member.equals(memberId)) {
+        name = member.getName();
+      }
+    }
+    return name;
+  }
+
+  /**
    * @return  brief summary of class showing number of members and bills 
    */
   public String getSummary() {
