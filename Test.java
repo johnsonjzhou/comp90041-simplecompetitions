@@ -21,7 +21,8 @@ public class Test {
     //dataProvider();
     //eligibleAmount();
     // numbersEntry();
-    autoNumbersEntry();
+    // autoNumbersEntry();
+    entryMatching();
   }
 
   public static void userInput() {
@@ -123,7 +124,7 @@ public class Test {
   public static void autoNumbersEntry() {
     AutoNumbersEntry entry = new AutoNumbersEntry(1, "123456", "654321");
     try {
-      entry.createNumbers(7);
+      entry.create(7);
       System.out.println(entry.summary());
       // entry.createNumbers(2);
       // System.out.println(entry.summary());
@@ -132,7 +133,28 @@ public class Test {
     } catch (InvalidEntryException e) {
       System.out.println(e.getMessage());
     }
-    
+  }
 
+  public static void entryMatching() {
+    int[] one = { 1, 2, 3, 4, 5, 6, 7 };
+    int[] two = { 35, 2, 3, 4, 5, 10, 7 };
+
+    NumbersEntry entryOne = new NumbersEntry(1, "1234", "1234");
+    NumbersEntry entryTwo = new NumbersEntry(2, "1234", "1234");
+
+    try {
+      // for (int i = 0; i < 7; i++) {
+      //   entryOne.stage(one[i]);
+      //   entryTwo.stage(two[i]);
+      // }
+      // entryOne.create();
+      // entryTwo.create();
+
+      int match = entryOne.match(entryTwo);
+
+      System.out.println(match);
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
   }
 }
