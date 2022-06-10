@@ -24,14 +24,55 @@ public class RandomPickCompetition extends Competition {
 
   /** Competition */
 
-  // todo 
+  /**
+   * Add entries to this competition 
+   * @param  console  UserConsole to input bill id
+   * @param  dasta  DataProvider to provide bill and member information 
+   */
   public void addEntries(UserConsole console, DataProvider data) {
-    int entries = this.validateBill(console, data);
-    // follow through line break from validateBill
-    System.out.println();
+    Bill bill = this.selectBill(console, data);
+    String billId = bill.getId();
+    String memberId = bill.getMemberId();
+    double billAmount = bill.getAmount();
+    int entryQuantity = this.calculateEligibleEntries(billAmount);
     
     // return to main menu if bill is not eligible for any entries 
-    if (entries < 1) { return; }
+    if (entryQuantity < 1) { 
+      // follow through line break from validateBill
+      System.out.println();
+      return; 
+    }
+
+    // generate entries
+    for (int i = 1; i <= entryQuantity; i++) {
+      int entryId = this.entrySize() + 1;
+      Entry newEntry = new Entry(entryId, billId, memberId);
+      this.addEntry(newEntry);
+      bill.markUsed();
+    }
+
+    // print confirmation for all entries added 
+    System.out.println(OutputPrompts.ENTRIES_GENERATED);
+    for (Entry entry : this.getEntries()) {
+      if (entry.getBillId().equals(billId)) {
+        System.out.println(entry.summary());
+      }
+    }
+
+    // whether to continue adding more entries? 
+    System.out.println(OutputPrompts.ADD_MORE_ENTRIES);
+    console.clearBuffer();
+    String addMore = console.readBufferedNext();
+    console.clearBuffer();
+    switch (addMore) {
+      case "y":
+        this.addEntries(console, data);
+        return;
+
+      case "n":
+      default:
+        return;
+    }
   }
 
   // todo 
