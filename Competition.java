@@ -3,12 +3,14 @@
  * Student ID: 1302442
  * LMS username: zhoujj
  */
+import java.util.ArrayList;
 
 public abstract class Competition {
 
   private static final int MIN_ENTRY_AMOUNT = 50;
   private String name; //competition name
   private int id; //competition identifier
+  private ArrayList<Entry> entries;
   private boolean active;
   private boolean testMode;
 
@@ -21,13 +23,20 @@ public abstract class Competition {
     this.id = id;
     this.name = name;
     this.testMode = testMode;
+    this.entries = new ArrayList<Entry>();
     this.active = true;
   }
 
+  /**
+   * @return  the competition id 
+   */
   public int getId() {
     return this.id;
   }
 
+  /**
+   * @return  whether the competition is active 
+   */
   public boolean isActive() {
     return this.active;
   }
@@ -44,6 +53,28 @@ public abstract class Competition {
    */
   public boolean isTestMode() {
     return this.testMode;
+  }
+
+  /**
+   * Adds an entry to the entries list 
+   * @param  entry  the entry to add 
+   */
+  public void addEntry(Entry entry) {
+    this.entries.add(entry);
+  }
+
+  /**
+   * @return  the entries list 
+   */
+  public ArrayList<Entry> getEntries() {
+    return this.entries;
+  }
+
+  /**
+   * @return  number of entries currently in the entries list 
+   */
+  public int entrySize() {
+    return this.entries.size();
   }
 
   public void report() {

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public class LuckyNumbersCompetition extends Competition {
 
-  private ArrayList<Entry> entries;
-
   /**
    * @param  id  the competition id
    * @param  name  the competition name
@@ -16,7 +14,6 @@ public class LuckyNumbersCompetition extends Competition {
    */
   public LuckyNumbersCompetition(int id, String name, boolean testMode) {
     super(id, name, testMode);
-    this.entries = new ArrayList<Entry>();
     this.announceCreated(this.getClass().getSimpleName());
   }
 
@@ -66,7 +63,7 @@ public class LuckyNumbersCompetition extends Competition {
     // ask the user to input the specified number of manual entries 
 
     for (int i = 1; i <= manualEntries; i++) {
-      int entryId = this.entries.size() + 1;
+      int entryId = this.entrySize() + 1;
       NumbersEntry manualEntry = new NumbersEntry(entryId, billId, memberId);
 
       createEntry : while(true) {
@@ -105,23 +102,23 @@ public class LuckyNumbersCompetition extends Competition {
         System.out.println(OutputErrors.ENTRY_CREATE_ERROR);
       }
 
-      this.entries.add(manualEntry);
+      this.addEntry(manualEntry);
       bill.markUsed();
     }
 
     // generate remaining entries automatically 
 
     for (int i = manualEntries + 1; i <= entryQuantity; i++) {
-      int entryId = this.entries.size() + 1;
+      int entryId = this.entrySize() + 1;
       AutoNumbersEntry autoEntry = new AutoNumbersEntry(entryId, billId, memberId);
       try {
         // testing mode: seed is the total number of entries
         if (this.isTestMode()) {
-          autoEntry.create(this.entries.size());
+          autoEntry.create(this.entrySize());
         } else {
           autoEntry.create();
         }
-        this.entries.add(autoEntry);
+        this.addEntry(autoEntry);
       } catch (Exception e) {
         // should not reach here in normal circumstances
         System.out.println(OutputErrors.ENTRY_GENERATE_ERROR);
@@ -131,7 +128,7 @@ public class LuckyNumbersCompetition extends Competition {
 
     // print confirmation for all entries added 
     System.out.println(OutputPrompts.ENTRIES_ADDED);
-    for (Entry entry : this.entries) {
+    for (Entry entry : this.getEntries()) {
       if (entry.getBillId().equals(billId)) {
         System.out.println(entry.summary());
       }
