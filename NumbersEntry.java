@@ -6,8 +6,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.print.attribute.standard.NumberOfInterveningJobs;
-
 public class NumbersEntry extends Entry {
 
   private int[] numbers; 
