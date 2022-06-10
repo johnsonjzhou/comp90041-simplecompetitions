@@ -40,6 +40,13 @@ public class Entry {
   }
 
   /**
+   * @return  the member id associated with this entry
+   */
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  /**
    * @return  summary of entry with id 
    * Entry ID: 2      
    */
