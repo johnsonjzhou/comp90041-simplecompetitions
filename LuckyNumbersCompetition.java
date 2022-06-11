@@ -3,6 +3,7 @@
  * Student ID: 1302442
  * LMS username: zhoujj
  */
+import java.util.Collections;
 
 public class LuckyNumbersCompetition extends Competition {
 
@@ -233,6 +234,9 @@ public class LuckyNumbersCompetition extends Competition {
       System.out.println(OutputErrors.COMPETITION_NO_WINNERS);
       return;
     }
+
+    // sort winners 
+    Collections.sort(this.getWinningEntries());
 
     // list winning entries 
     this.announceWinners(data);
