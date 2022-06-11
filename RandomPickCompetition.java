@@ -3,6 +3,8 @@
 * Student ID: 1302442
 * LMS username: zhoujj
 */
+import java.util.Random;
+import java.util.Collections;
 
 public class RandomPickCompetition extends Competition {
   private final int FIRST_PRIZE = 50000;
@@ -20,6 +22,18 @@ public class RandomPickCompetition extends Competition {
   public RandomPickCompetition(int id, String name, boolean testMode) {
     super(id, name, testMode);
     this.announceCreated(this.getClass().getSimpleName());
+  }
+
+  private void announceWinners(DataProvider data) {
+    System.out.println(OutputPrompts.WINNING_ENTRIES);
+    for (Entry entry : this.getWinningEntries()) {
+      String memberId = entry.getMemberId();
+      String memberName = data.getMemberName(memberId);
+
+      System.out.println(String.format(OutputFormat.WINNING_ENTRY_RANDOMPICK, 
+        memberId, memberName, entry.getId(), entry.getPrize()
+      ));
+    }
   }
 
   /** Competition */
@@ -75,36 +89,55 @@ public class RandomPickCompetition extends Competition {
     }
   }
 
-  // todo 
-  public void drawWinners() {
-    // Random randomGenerator = null;
-    // if (this.getIsTestingMode()) {
-    //     randomGenerator = new Random(this.getId());
-    // } else {
-    //     randomGenerator = new Random();
-    // }
+  /**
+   * Draw winners based on the competition policy
+   * @param  data  of the DataProvider class
+   */
+  public void drawWinners(DataProvider data) {
+    Random randomGenerator = null;
+    if (this.isTestMode()) {
+        randomGenerator = new Random(this.getId());
+    } else {
+        randomGenerator = new Random();
+    }
 
-    // int winningEntryCount = 0;
-    // while (winningEntryCount < MAX_WINNING_ENTRIES) {
-    //   int winningEntryIndex = randomGenerator.nextInt(entries.size());
+    // handle if entry quantitiy is less than winning entry requirement
+    if (this.entrySize() < MAX_WINNING_ENTRIES) {
+      System.out.println(OutputErrors.COMPETITION_TOO_FEW_ENTRIES);
+      return;
+    }
 
-    //   Entry winningEntry = entries.get(winningEntryIndex);
+    int winningEntryCount = 0;
+    selectWinners : while (winningEntryCount < MAX_WINNING_ENTRIES) {
+      int winningEntryIndex = randomGenerator.nextInt(this.entrySize());
+
+      Entry winningEntry = this.getEntries().get(winningEntryIndex);
   
-    //   /*
-    //   * Ensure that once an entry has been selected,
-    //   * it will not be selected again.
-    //   */
-    //   if (winningEntry.getPrize() == 0) {
-    //     int currentPrize = prizes[winningEntryCount];
-    //     winningEntry.setPrize(currentPrize);
-    //     winningEntryCount++;
-    //   }
-    // }
+      /*
+      * Ensure that once an entry has been selected,
+      * it will not be selected again.
+      */
+      if (winningEntry.getPrize() == 0) {
+        int currentPrize = prizes[winningEntryCount];
+        winningEntry.setPrize(currentPrize);
+        winningEntryCount++;
 
-    /*
-    * Note that the above piece of code does not ensure that
-    * one customer gets at most one winning entry. Add your code
-    * to complete the logic.
-    */
+        // if member already has a winning entry, skip adding another 
+        if (this.isWinner(winningEntry.getMemberId())) {
+          continue selectWinners;
+        }
+
+        this.addWinningEntry(winningEntry);
+      }
+    }
+
+    // sort winners 
+    Collections.sort(this.getWinningEntries());
+
+    // list winning entries 
+    this.announceWinners(data);
+
+    // mark competition as complete 
+    this.setComplete();
   }
 }
