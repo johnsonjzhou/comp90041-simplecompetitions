@@ -3,8 +3,9 @@
  * Student ID: 1302442
  * LMS username: zhoujj
  */
+import java.lang.Comparable;
 
-public class Entry {
+public class Entry implements Comparable<Entry> {
 
   private int entryId;
   private String billId;
@@ -75,5 +76,16 @@ public class Entry {
    */
   public String summary() {
     return String.format(OutputFormat.ENTRY_ID, this.entryId);
+  }
+
+  /** Comparable */
+
+  /**
+   * To enable sorting of entries by entry Id
+   * Note: this class has a natural ordering that is inconsistent with equals.
+   * @param  entry  an entry object to compare to
+   */
+  public int compareTo(Entry entry) {
+    return this.entryId - entry.getId();
   }
 }
