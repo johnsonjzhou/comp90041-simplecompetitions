@@ -103,7 +103,7 @@ public class SimpleCompetitions {
             continue menuLoop;
 
           case 4: 
-            // todo  get summary report
+            this.displaySummary();
             continue menuLoop;
 
           case 5:
@@ -210,6 +210,39 @@ public class SimpleCompetitions {
   private void drawWinners() throws MenuException {
     Competition activeCompetition = this.getActiveCompetition();
     activeCompetition.drawWinners(this.data);
+  }
+
+  /**
+   * Displays a summary about all the competitions 
+   */
+  private void displaySummary() {
+    // summary about competitions 
+    System.out.println(OutputPrompts.SUMMARY_HEADER);
+
+    int completedCompetitions = 0;
+    int activeCompetitions = 0; 
+
+    for (Competition competition : this.competitions) {
+      if (competition.isActive()) {
+        activeCompetitions++;
+      } else {
+        completedCompetitions++;
+      }
+    }
+
+    System.out.println(String.format(OutputFormat.SUMMARY_COMPLETED_COMPETITIONS, 
+      completedCompetitions
+    ));
+
+    System.out.println(String.format(OutputFormat.SUMMARY_ACTIVE_COMPETITIONS, 
+      activeCompetitions
+    ));
+
+    // details about each competition 
+    for (Competition competition : this.competitions) {
+      System.out.println();
+      competition.report();
+    }
   }
 
   private void exit(int status) {

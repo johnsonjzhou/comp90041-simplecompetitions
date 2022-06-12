@@ -68,6 +68,9 @@ public final class OutputPrompts {
   public static final String WINNING_ENTRIES = 
     "Winning entries:";
 
+  public static final String SUMMARY_HEADER = 
+    "----SUMMARY REPORT----";
+
   public static final String GOODBYE = 
     "Goodbye!";
 }

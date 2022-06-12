@@ -54,4 +54,11 @@ public final class OutputFormat {
   public static final String SUMMARY_PRIZES = 
     "Total awarded prizes: %d";
 
+  // +Number of completed competitions: 1
+  public static final String SUMMARY_COMPLETED_COMPETITIONS = 
+    "+Number of completed competitions: %d";
+
+  // +Number of active competitions: 1
+  public static final String SUMMARY_ACTIVE_COMPETITIONS = 
+    "+Number of active competitions: %d";
 }

@@ -116,7 +116,32 @@ public abstract class Competition {
   }
 
   public void report() {
-    //todo
+    // competition summary 
+    System.out.println(String.format(OutputFormat.SUMMARY_COMPETITION, 
+      this.id, this.name, this.active ? "yes" : "no"
+    ));
+
+    // number of entries 
+    System.out.println(String.format(OutputFormat.SUMMARY_ENTRIES, 
+      this.entries.size()
+    ));
+
+    // only if competition is complete 
+    if (this.isActive()) {
+      return;
+    }
+
+    // number of winning entries 
+    System.out.println(String.format(OutputFormat.SUMMARY_WINNING_ENTRIES, 
+      this.winningEntries.size()
+    ));
+
+    // total prize
+    int totalPrize = 0;
+    for (Entry winningEntry : this.winningEntries) {
+      totalPrize += winningEntry.getPrize();
+    }
+    System.out.println(String.format(OutputFormat.SUMMARY_PRIZES, totalPrize));
   }
 
   /**
