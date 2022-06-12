@@ -229,6 +229,9 @@ public class LuckyNumbersCompetition extends Competition {
       this.addWinningEntry(entry);
     }
 
+    // mark competition as complete 
+    this.setComplete();
+
     // if no winners are found, hopefully not!
     if (this.getWinningEntries().size() < 1) {
       System.out.println(OutputErrors.COMPETITION_NO_WINNERS);
@@ -240,8 +243,5 @@ public class LuckyNumbersCompetition extends Competition {
 
     // list winning entries 
     this.announceWinners(data);
-
-    // mark competition as complete 
-    this.setComplete();
   }
 }
