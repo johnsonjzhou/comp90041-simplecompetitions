@@ -343,7 +343,8 @@ public class SimpleCompetitions {
   /** public */
 
   /**
-   * Requests user input in the form of "y" for yes or "n" for no.
+   * Requests user input in the form of "y" for yes or "n" for no. 
+   * This is static as used by several other classes.  
    * @param  console  an instance of UserConsole to accept user inputs
    * @param  prompt  optionally print a message 
    * @return  True if user selected "y", False if user selected "n", otherwise loop 
