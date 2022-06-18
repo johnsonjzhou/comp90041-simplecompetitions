@@ -6,6 +6,9 @@
 
 public final class OutputPrompts {
 
+  public static final String WELCOME_MESSAGE = 
+    "----WELCOME TO SIMPLE COMPETITIONS APP----";
+
   public static final String LOAD_FILE = 
     "Load competitions from file? (Y/N)";
 

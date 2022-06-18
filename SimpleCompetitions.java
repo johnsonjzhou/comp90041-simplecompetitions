@@ -40,7 +40,11 @@ public class SimpleCompetitions {
     }
   }
 
+  /**
+   * Loads the application
+   */
   private void load() {
+    System.out.println(OutputPrompts.WELCOME_MESSAGE);
     System.out.println(OutputPrompts.LOAD_FILE);
 
     try {
@@ -62,7 +66,7 @@ public class SimpleCompetitions {
               break modeLoop;
     
             default:
-              System.out.println(OutputErrors.UNSUPPORTED_OPTION);
+              System.out.println(OutputErrors.RUN_MODE_INVALID);
               continue modeLoop;
           }
         }
