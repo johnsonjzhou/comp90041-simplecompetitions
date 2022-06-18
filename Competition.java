@@ -203,6 +203,7 @@ public abstract class Competition implements Serializable {
       System.out.println(OutputPrompts.BILL_ID);
 
       String billId = console.readBufferedNext();
+      console.clearBuffer();
 
       // 1) checking for valid bill id
       if (!billId.matches("^\\d{6}$")) {
