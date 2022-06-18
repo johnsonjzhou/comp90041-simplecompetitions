@@ -60,7 +60,7 @@ public final class OutputPrompts {
     "The following entries have been automatically generated:";
 
   public static final String MANUAL_ENTRIES = 
-    "How many manual entries did the customer fill up?:";
+    "How many manual entries did the customer fill up?: ";
 
   public static final String LUCKYNUMBER_ENTRY = 
     "Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.";
