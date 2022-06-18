@@ -10,7 +10,7 @@ public final class OutputPrompts {
     "----WELCOME TO SIMPLE COMPETITIONS APP----";
 
   public static final String LOAD_FILE = 
-    "Load competitions from file? (Y/N)";
+    "Load competitions from file? (Y/N)?";
 
   public static final String SAVE_FILE = 
     "Save competitions to file? (Y/N)?";
