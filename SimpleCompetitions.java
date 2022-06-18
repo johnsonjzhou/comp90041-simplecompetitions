@@ -314,7 +314,6 @@ public class SimpleCompetitions {
       String filepath = this.console.readBufferedNext();
       this.console.clearBuffer();
 
-      // todo  create backup first if file exists 
       FileIO file = new FileIO(filepath);
       file.writeObject(this.state);
 

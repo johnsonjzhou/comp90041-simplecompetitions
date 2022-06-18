@@ -59,6 +59,30 @@ public class DataProvider {
     }
   }
 
+  /**
+   * This will overwrite the designated filepath with a CSV containing 
+   * the specified dataSet. The dataSet must implement the CommaSeparated 
+   * interface.  
+   * @param  dataSet  the data set to write to a CSV file 
+   * @param  filepath  path name of the file to be written 
+   * @throws  FileIOException  if an error occurs when writing the file 
+   */
+  private <T extends CommaSeparated> void writeCsvFile(ArrayList<T> dataSet, String filepath) 
+  throws FileIOException {
+    FileIO file = new FileIO(filepath);
+    file.setWritable();
+    
+    for (T element : dataSet) {
+      if (dataSet.indexOf(element) == 0) {
+        file.overwrite(element.toCsv());
+      } else {
+        file.writeLine(element.toCsv());
+      }
+    }
+
+    file.close();
+  }
+
   /** public */
 
   /**
@@ -109,10 +133,12 @@ public class DataProvider {
     );
   }
 
-  public void saveDataFiles() {
-    // todo: save to the bills file
-    // todo: save to the members file 
-    // todo: create backup first before writing file 
+  /**
+   * @throws  FileIOException  if an error occurs when writing the file 
+   */
+  public void saveDataFiles() throws FileIOException {
+    this.writeCsvFile(this.bills, this.billFile);
+    this.writeCsvFile(this.members, this.memberFile);
   }
 
   /** override */
