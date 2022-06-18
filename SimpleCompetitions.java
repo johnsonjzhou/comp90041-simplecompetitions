@@ -191,8 +191,7 @@ public class SimpleCompetitions {
     }
 
     System.out.println(OutputPrompts.COMPETITION_NAME);
-    name = this.console.readBufferedNext(true);
-    this.console.clearBuffer();
+    name = this.console.readNextLine();
 
     switch(type) {
       case "l": 

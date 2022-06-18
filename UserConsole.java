@@ -31,6 +31,13 @@ public class UserConsole {
   /** public */
 
   /**
+   * @return  the nextLine from the input 
+   */
+  public String readNextLine() {
+    return this.stdin.nextLine();
+  }
+
+  /**
    * Creates a read buffer by reading the entire input line 
    * and splitting at the spaces. 
    * This then enables to step through each of the input items iteratively. 
