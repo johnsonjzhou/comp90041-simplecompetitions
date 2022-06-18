@@ -202,6 +202,7 @@ public class SimpleCompetitions {
 
   /**
    * Creates entries by invoking the addEntries method of the active Competition 
+   * @throws  MenuException  if no active competition is found 
    */
   private void addEntries() throws MenuException {
     Competition activeCompetition = this.getActiveCompetition();
@@ -210,6 +211,7 @@ public class SimpleCompetitions {
 
   /**
    * Draws winners by invoking the drawWinners method of the active Competition 
+   * @throws  MenuException  if no active competition is found 
    */
   private void drawWinners() throws MenuException {
     Competition activeCompetition = this.getActiveCompetition();
@@ -257,6 +259,7 @@ public class SimpleCompetitions {
 
   /** 
    * Loads the state from a file 
+   * @throws  DataAccessException  if an error occurs while accessing state file 
    */
   private void loadState() throws DataAccessException {
     System.out.println(OutputPrompts.FILE_NAME);
@@ -279,7 +282,6 @@ public class SimpleCompetitions {
     } catch (FileIOException e) {
       throw new DataAccessException(OutputErrors.FILE_LOAD_ERROR);
     }
-
   }
 
   /** 
