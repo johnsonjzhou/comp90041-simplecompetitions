@@ -245,6 +245,12 @@ public class SimpleCompetitions {
    * Displays a summary about all the competitions 
    */
   private void displaySummary() {
+    // if no competitions have been created 
+    if (this.state.getCompetitions().size() < 1) {
+      System.out.println(OutputErrors.NO_COMPETITION_CREATED);
+      return;
+    }
+
     // summary about competitions 
     System.out.println(OutputPrompts.SUMMARY_HEADER);
 
