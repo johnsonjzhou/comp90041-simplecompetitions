@@ -1,0 +1,249 @@
+----WELCOME TO SIMPLE COMPETITIONS APP----
+Load competitions from file? (Y/N)?
+Unsupported option. Please try again!
+Load competitions from file? (Y/N)?
+Which mode would you like to run? (Type T for Testing, and N for Normal mode):
+Invalid mode! Please choose again.
+Which mode would you like to run? (Type T for Testing, and N for Normal mode):
+Member file: 
+Bill file: 
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+There is no active competition. Please create one!
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+There is no active competition. Please create one!
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+No competition has been created yet!
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Type of competition (L: LuckyNumbers, R: RandomPick)?:
+Invalid competition type! Please choose again.
+Type of competition (L: LuckyNumbers, R: RandomPick)?:
+Competition name: 
+A new competition has been created!
+Competition ID: 1, Competition Name: Lucky_1, Type: LuckyNumbersCompetition
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+There is an active competition. SimpleCompetitions does not support concurrent competitions!
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+The current competition has no entries yet!
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+----SUMMARY REPORT----
++Number of completed competitions: 0
++Number of active competitions: 1
+
+Competition ID: 1, name: Lucky_1, active: yes
+Number of entries: 0
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Bill ID: 
+Invalid bill id! It must be a 6-digit number. Please try again.
+Bill ID: 
+This bill has no member id. Please try again.
+Bill ID: 
+This bill does not exist. Please try again.
+Bill ID: 
+This bill ($300.5) is eligible for 6 entries. How many manual entries did the customer fill up?: 
+The number must be in the range from 0 to 6. Please try again.
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+Invalid input! Numbers are expected. Please try again!
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+Invalid input! Fewer than 7 numbers are provided. Please try again!
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+Invalid input! More than 7 numbers are provided. Please try again!
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+Invalid input! All numbers must be different!
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+Invalid input! All numbers must be in the range from 1 to 35!
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+The following entries have been added:
+Entry ID: 1      Numbers:  1  2  3  4  5  7 10
+Entry ID: 2      Numbers:  5  9 10 11 15 22 24 [Auto]
+Entry ID: 3      Numbers:  3  6  7  8 18 22 33 [Auto]
+Entry ID: 4      Numbers:  3  8 15 16 20 22 28 [Auto]
+Entry ID: 5      Numbers:  5 11 12 14 16 26 33 [Auto]
+Entry ID: 6      Numbers:  4  6 19 22 27 30 31 [Auto]
+Add more entries (Y/N)?
+Bill ID: 
+This bill has already been used for a competition. Please try again.
+Bill ID: 
+This bill ($340.8) is eligible for 6 entries. How many manual entries did the customer fill up?: 
+The following entries have been added:
+Entry ID: 7      Numbers:  5  7 10 14 20 26 29 [Auto]
+Entry ID: 8      Numbers:  6  7 23 26 27 29 32 [Auto]
+Entry ID: 9      Numbers:  3  4  5 20 24 27 35 [Auto]
+Entry ID: 10     Numbers:  5 12 15 19 23 27 34 [Auto]
+Entry ID: 11     Numbers: 11 14 15 16 17 25 34 [Auto]
+Entry ID: 12     Numbers:  3  9 17 22 24 26 29 [Auto]
+Add more entries (Y/N)?
+Unsupported option. Please try again!
+Add more entries (Y/N)?
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+----SUMMARY REPORT----
++Number of completed competitions: 0
++Number of active competitions: 1
+
+Competition ID: 1, name: Lucky_1, active: yes
+Number of entries: 12
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Bill ID: 
+This bill ($125.9) is eligible for 2 entries. How many manual entries did the customer fill up?: 
+Please enter 7 different numbers (from the range 1 to 35) separated by whitespace.
+The following entries have been added:
+Entry ID: 13     Numbers:  5  6  7  8 12 13 19
+Entry ID: 14     Numbers:  2  7  8 13 25 27 32 [Auto]
+Add more entries (Y/N)?
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Competition ID: 1, Competition Name: Lucky_1, Type: LuckyNumbersCompetition
+Lucky Numbers: 15 17 26 28 29 31 33 [Auto]
+Winning entries:
+Member ID: 111111, Member Name: John, Prize: 50   
+--> Entry ID: 4, Numbers:  3  8 15 16 20 22 28 [Auto]
+Member ID: 222222, Member Name: Marry, Prize: 100  
+--> Entry ID: 12, Numbers:  3  9 17 22 24 26 29 [Auto]
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+----SUMMARY REPORT----
++Number of completed competitions: 1
++Number of active competitions: 0
+
+Competition ID: 1, name: Lucky_1, active: no
+Number of entries: 14
+Number of winning entries: 2
+Total awarded prizes: 150
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Type of competition (L: LuckyNumbers, R: RandomPick)?:
+Competition name: 
+A new competition has been created!
+Competition ID: 2, Competition Name: Lucky_2, Type: LuckyNumbersCompetition
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Bill ID: 
+This bill ($256.8) is eligible for 5 entries. How many manual entries did the customer fill up?: 
+The following entries have been added:
+Entry ID: 1      Numbers:  9 12 16 22 25 29 33 [Auto]
+Entry ID: 2      Numbers:  3  5 10 19 21 24 28 [Auto]
+Entry ID: 3      Numbers: 11 13 15 22 23 24 27 [Auto]
+Entry ID: 4      Numbers:  3  5  7 22 28 31 35 [Auto]
+Entry ID: 5      Numbers:  2  4  9 17 23 24 26 [Auto]
+Add more entries (Y/N)?
+Bill ID: 
+This bill ($145.6) is eligible for 2 entries. How many manual entries did the customer fill up?: 
+The following entries have been added:
+Entry ID: 6      Numbers:  1  2  3 14 15 17 25 [Auto]
+Entry ID: 7      Numbers:  3  5 11 14 26 27 34 [Auto]
+Add more entries (Y/N)?
+Bill ID: 
+This bill ($300.0) is eligible for 6 entries. How many manual entries did the customer fill up?: 
+The following entries have been added:
+Entry ID: 8      Numbers:  5 12 23 29 30 32 33 [Auto]
+Entry ID: 9      Numbers:  2  4 14 16 20 27 30 [Auto]
+Entry ID: 10     Numbers:  7  8 12 18 28 30 34 [Auto]
+Entry ID: 11     Numbers:  2  3  6 13 16 29 35 [Auto]
+Entry ID: 12     Numbers:  2 15 22 23 26 28 32 [Auto]
+Entry ID: 13     Numbers:  8 13 18 19 22 28 31 [Auto]
+Add more entries (Y/N)?
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Competition ID: 2, Competition Name: Lucky_2, Type: LuckyNumbersCompetition
+Lucky Numbers:  5 12 15 23 24 32 35 [Auto]
+Winning entries:
+Member ID: 444444, Member Name: Long, Prize: 100  
+--> Entry ID: 3, Numbers: 11 13 15 22 23 24 27 [Auto]
+Member ID: 222222, Member Name: Marry, Prize: 500  
+--> Entry ID: 8, Numbers:  5 12 23 29 30 32 33 [Auto]
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+----SUMMARY REPORT----
++Number of completed competitions: 2
++Number of active competitions: 0
+
+Competition ID: 1, name: Lucky_1, active: no
+Number of entries: 14
+Number of winning entries: 2
+Total awarded prizes: 150
+
+Competition ID: 2, name: Lucky_2, active: no
+Number of entries: 13
+Number of winning entries: 2
+Total awarded prizes: 600
+Please select an option. Type 5 to exit.
+1. Create a new competition
+2. Add new entries
+3. Draw winners
+4. Get a summary report
+5. Exit
+Save competitions to file? (Y/N)?
+Goodbye!
