@@ -21,10 +21,6 @@ public class LuckyNumbersCompetition extends Competition {
   }
 
   private void announceWinners(DataProvider data) {
-    // announce competition name and type 
-    this.announceName(this.getClass().getSimpleName());
-
-    // announce the winning entries
     System.out.println(OutputPrompts.WINNING_ENTRIES);
     for (Entry entry : this.getWinningEntries()) {
       String memberId = entry.getMemberId();
@@ -199,9 +195,6 @@ public class LuckyNumbersCompetition extends Competition {
       System.out.println(OutputErrors.COMPETITION_DRAW_ERROR);
       return;
     }
-
-    // announce the winning entry 
-    System.out.println("Lucky " + winningEntry.numbersSummary());
     
     // compare all entries to generated winningEntry 
     checkEntries : for (Entry entry : this.getEntries()) {
@@ -234,6 +227,12 @@ public class LuckyNumbersCompetition extends Competition {
 
     // sort winners 
     Collections.sort(this.getWinningEntries());
+
+    // announce competition name and type 
+    this.announceName(this.getClass().getSimpleName());
+
+    // announce the winning entry 
+    System.out.println("Lucky " + winningEntry.numbersSummary());
 
     // list winning entries 
     this.announceWinners(data);
