@@ -307,7 +307,7 @@ public class SimpleCompetitions {
     try {
       System.out.println(OutputPrompts.FILE_NAME);
       this.console.clearBuffer();
-      String filepath = this.console.readBufferedNext();
+      String filepath = this.console.readBufferedNext(true);
       this.console.clearBuffer();
 
       FileIO file = new FileIO(filepath);
