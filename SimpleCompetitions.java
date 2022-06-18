@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /*
 * Student name: Johnson Zhou
 * Student ID: 1302442
@@ -137,8 +139,12 @@ public class SimpleCompetitions {
       } catch (MenuException e) {
         System.out.println(e.getMessage());
         continue menuLoop;
-      } catch (NullPointerException e) {
+      } catch (NullPointerException | NoSuchElementException e) {
+        System.out.println(OutputErrors.GENERAL_ERROR);
         this.exit(1);
+      } catch (Exception e) {
+        System.out.println(OutputErrors.GENERAL_ERROR);
+        this.exit(2);
       }
     }
   }

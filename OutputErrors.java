@@ -9,6 +9,10 @@
  */
 public final class OutputErrors {
 
+  /** general error */
+  public static final String GENERAL_ERROR = 
+    "An unexpected error occurred.";
+
   /** unsupported option */
   public static final String UNSUPPORTED_OPTION = 
     "Unsupported option. Please try again!";
