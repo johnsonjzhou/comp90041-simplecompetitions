@@ -21,6 +21,10 @@ public class LuckyNumbersCompetition extends Competition {
   }
 
   private void announceWinners(DataProvider data) {
+    // announce competition name and type 
+    this.announceName(this.getClass().getSimpleName());
+
+    // announce the winning entries
     System.out.println(OutputPrompts.WINNING_ENTRIES);
     for (Entry entry : this.getWinningEntries()) {
       String memberId = entry.getMemberId();
@@ -180,9 +184,6 @@ public class LuckyNumbersCompetition extends Competition {
       System.out.println(OutputErrors.COMPETITION_NO_ENTRIES);
       return;
     }
-    
-    // announce competition name and type 
-    this.announceName(this.getClass().getSimpleName());
 
     // auto generate a winning entry 
     AutoNumbersEntry winningEntry = new AutoNumbersEntry(0, "0", "0");

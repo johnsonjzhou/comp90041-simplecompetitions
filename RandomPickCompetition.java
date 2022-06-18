@@ -26,6 +26,10 @@ public class RandomPickCompetition extends Competition {
   }
 
   private void announceWinners(DataProvider data) {
+    // announce competition name and type 
+    this.announceName(this.getClass().getSimpleName());
+
+    // announce the winning entries
     System.out.println(OutputPrompts.WINNING_ENTRIES);
     for (Entry entry : this.getWinningEntries()) {
       String memberId = entry.getMemberId();
@@ -50,7 +54,7 @@ public class RandomPickCompetition extends Competition {
     String memberId = bill.getMemberId();
     double billAmount = bill.getAmount();
     int entryQuantity = this.calculateEligibleEntries(billAmount);
-    
+
     // follow through line break from validateBill
     System.out.println();
     
