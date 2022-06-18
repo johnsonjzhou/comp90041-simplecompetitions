@@ -1,6 +1,7 @@
-/**
- * General exceptions encountered whilst working with the game world file 
- * @author  Johnson Zhou 1302442 <zhoujj@student.unimelb.edu.au>
+/*
+ * Student name: Johnson Zhou
+ * Student ID: 1302442
+ * LMS username: zhoujj
  */
 import java.io.IOException;
 
