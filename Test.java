@@ -3,6 +3,7 @@
 * Student ID: 1302442
 * LMS username: zhoujj
 */
+import java.util.ArrayList;
 
 /**
  * For testing purposes only 
@@ -22,7 +23,9 @@ public class Test {
     //eligibleAmount();
     // numbersEntry();
     // autoNumbersEntry();
-    entryMatching();
+    // entryMatching();
+    // objectWrite();
+    objectRead();
   }
 
   public static void userInput() {
@@ -155,6 +158,34 @@ public class Test {
       System.out.println(match);
     } catch (Exception e) {
       System.out.println(e.getMessage());
+    }
+  }
+
+  public static void objectWrite() {
+    FileIO file = new FileIO("test.dat");
+    String test = new String("123");
+    String test2 = new String("456");
+    ArrayList<String> testArray = new ArrayList<String>();
+
+    testArray.add(test);
+    testArray.add(test2);
+
+    try {
+      file.writeObject(testArray);
+    } catch (FileIOException e) {
+      System.out.println(e.getCause().getMessage());
+    }
+  }
+
+  public static void objectRead() {
+    FileIO file = new FileIO("test.dat");
+    try {
+      @SuppressWarnings("unchecked")
+      ArrayList<String> loadArray = (ArrayList<String>) file.readObject();
+      String item = loadArray.get(0);
+      System.out.println(item);
+    } catch (FileIOException e) {
+      System.out.println(e.getCause().getMessage());
     }
   }
 }
