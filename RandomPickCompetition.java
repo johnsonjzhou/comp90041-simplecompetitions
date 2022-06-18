@@ -22,12 +22,12 @@ public class RandomPickCompetition extends Competition {
   public RandomPickCompetition(int id, String name) {
     super(id, name);
     this.announceCreated();
-    this.announceName(this.getClass().getSimpleName());
+    this.announceName();
   }
 
   private void announceWinners(DataProvider data) {
     // announce competition name and type 
-    this.announceName(this.getClass().getSimpleName());
+    this.announceName();
 
     // announce the winning entries
     System.out.println(OutputPrompts.WINNING_ENTRIES);

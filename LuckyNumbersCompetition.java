@@ -16,9 +16,12 @@ public class LuckyNumbersCompetition extends Competition {
   public LuckyNumbersCompetition(int id, String name) {
     super(id, name);
     this.announceCreated();
-    this.announceName(this.getClass().getSimpleName());
+    this.announceName();
   }
 
+  /**
+   * Output the winners to screen 
+   */
   private void announceWinners(DataProvider data) {
     System.out.println(OutputPrompts.WINNING_ENTRIES);
     for (Entry entry : this.getWinningEntries()) {
@@ -228,7 +231,7 @@ public class LuckyNumbersCompetition extends Competition {
     Collections.sort(this.getWinningEntries());
 
     // announce competition name and type 
-    this.announceName(this.getClass().getSimpleName());
+    this.announceName();
 
     // announce the winning entry 
     System.out.println("Lucky " + winningEntry.numbersSummary());
