@@ -19,8 +19,8 @@ public class RandomPickCompetition extends Competition {
    * @param  name  the competition name
    * @param  testMode  whether in test mode 
    */
-  public RandomPickCompetition(int id, String name, boolean testMode) {
-    super(id, name, testMode);
+  public RandomPickCompetition(int id, String name) {
+    super(id, name);
     this.announceCreated(this.getClass().getSimpleName());
   }
 

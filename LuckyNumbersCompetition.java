@@ -14,8 +14,8 @@ public class LuckyNumbersCompetition extends Competition {
    * @param  name  the competition name
    * @param  testMode  whether in test mode 
    */
-  public LuckyNumbersCompetition(int id, String name, boolean testMode) {
-    super(id, name, testMode);
+  public LuckyNumbersCompetition(int id, String name) {
+    super(id, name);
     this.announceCreated(this.getClass().getSimpleName());
   }
 

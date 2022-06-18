@@ -3,18 +3,16 @@
 * Student ID: 1302442
 * LMS username: zhoujj
 */
-import java.util.ArrayList;
 
 public class SimpleCompetitions {
 
   private UserConsole console;
   private DataProvider data;
-  private ArrayList<Competition> competitions;
-  private boolean testMode = false;
+  private State state;
 
   public SimpleCompetitions() {
     this.console = new UserConsole();
-    this.competitions = new ArrayList<Competition>();
+    this.state = new State();
   }
 
   /** private */
@@ -35,7 +33,7 @@ public class SimpleCompetitions {
 
       switch (testMode) {
         case "t":
-          this.testMode = true;
+          this.state.setTestMode(true);
         case "n": 
           break modeLoop;
 
@@ -136,7 +134,7 @@ public class SimpleCompetitions {
 
     // check all current competitions and see if they are active 
     // and get the highest competition id number to advance the sequence 
-    for (Competition competition : this.competitions) {
+    for (Competition competition : this.state.getCompetitions()) {
       if (competition.isActive()) {
         throw new MenuException(OutputErrors.CONCURRENT_COMPETITION);
       }
@@ -170,11 +168,11 @@ public class SimpleCompetitions {
 
     switch(type) {
       case "l": 
-        this.competitions.add(new LuckyNumbersCompetition(sequence, name, this.testMode));
+        this.state.addCompetition(new LuckyNumbersCompetition(sequence, name));
         break;
 
       case "r":
-        this.competitions.add(new RandomPickCompetition(sequence, name, this.testMode));
+        this.state.addCompetition(new RandomPickCompetition(sequence, name));
         break;
 
       default:
@@ -187,7 +185,7 @@ public class SimpleCompetitions {
    * @throws  MenuException  if no active competition is found 
    */
   private Competition getActiveCompetition() throws MenuException {
-    for (Competition competition : this.competitions) {
+    for (Competition competition : this.state.getCompetitions()) {
       if (competition.isActive()) {
         return competition;
       }
@@ -222,7 +220,7 @@ public class SimpleCompetitions {
     int completedCompetitions = 0;
     int activeCompetitions = 0; 
 
-    for (Competition competition : this.competitions) {
+    for (Competition competition : this.state.getCompetitions()) {
       if (competition.isActive()) {
         activeCompetitions++;
       } else {
@@ -239,7 +237,7 @@ public class SimpleCompetitions {
     ));
 
     // details about each competition 
-    for (Competition competition : this.competitions) {
+    for (Competition competition : this.state.getCompetitions()) {
       System.out.println();
       competition.report();
     }

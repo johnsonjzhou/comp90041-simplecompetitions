@@ -13,17 +13,16 @@ public abstract class Competition {
   private ArrayList<Entry> entries;
   private ArrayList<Entry> winningEntries;
   private boolean active;
-  private boolean testMode;
+  private boolean testMode = false;
 
   /**
    * @param  id  the competition id
    * @param  name  the competition name
    * @param  testMode  whether in test mode 
    */
-  public Competition(int id, String name, boolean testMode) {
+  public Competition(int id, String name) {
     this.id = id;
     this.name = name;
-    this.testMode = testMode;
     this.entries = new ArrayList<Entry>();
     this.winningEntries = new ArrayList<Entry>();
     this.active = true;
