@@ -104,7 +104,7 @@ public class RandomPickCompetition extends Competition {
     }
 
     int winningEntryCount = 0;
-    selectWinners : while (winningEntryCount < MAX_WINNING_ENTRIES) {
+    while (winningEntryCount < MAX_WINNING_ENTRIES) {
       int winningEntryIndex = randomGenerator.nextInt(this.entrySize());
 
       Entry winningEntry = this.getEntries().get(winningEntryIndex);
@@ -117,11 +117,6 @@ public class RandomPickCompetition extends Competition {
         int currentPrize = prizes[winningEntryCount];
         winningEntry.setPrize(currentPrize);
         winningEntryCount++;
-
-        // if member already has a winning entry, skip adding another 
-        if (this.isWinner(winningEntry.getMemberId())) {
-          continue selectWinners;
-        }
 
         this.addWinningEntry(winningEntry);
       }

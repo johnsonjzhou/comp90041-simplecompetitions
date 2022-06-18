@@ -203,12 +203,6 @@ public class LuckyNumbersCompetition extends Competition {
     
     // compare all entries to generated winningEntry 
     checkEntries : for (Entry entry : this.getEntries()) {
-      String memberId = entry.getMemberId();
-
-      // skip if entry already belongs to a winning member 
-      if (this.isWinner(memberId)) {
-        continue checkEntries;
-      }
 
       // skip if entry type is not valid 
       if (!(entry instanceof NumbersEntry)) {

@@ -32,6 +32,24 @@ public abstract class Competition implements Serializable {
     this.active = true;
   }
 
+  /** private */
+
+  /**
+   * Checks the winning entries for a particular memberId
+   * @param  memberId  the member id to check
+   * @return  the first winning entry found 
+   */
+  private Entry hasWinningEntry(String memberId) {
+    for (Entry entry : this.winningEntries) {
+      if (entry.getMemberId().equals(memberId)) {
+        return entry;
+      }
+    }
+    return null;
+  }
+
+  /** public */
+
   /**
    * @return  the competition id 
    */
@@ -90,25 +108,29 @@ public abstract class Competition implements Serializable {
   }
 
   /**
-   * Adds an entry to the winning entries list
+   * Adds an entry to the winning entries list. 
+   * If an entry belongs to a member already with a winning entry, the
+   * winning amount will be compared and existing entry replaced if 
+   * the new entry has a higher winning amount.  
    * @param  entry  the entry to add 
    */
   public void addWinningEntry(Entry entry) {
-    this.winningEntries.add(entry);
-  }
+    // check winning entries list for existing winning entries for same member 
+    String memberId = entry.getMemberId();
+    Entry existingWinningEntry = this.hasWinningEntry(memberId);
 
-  /**
-   * Checks the winning entries for a particular memberId
-   * @param  memberId  the member id to check
-   * @return  <code>True</code> if member already holds a winning entry
-   */
-  public boolean isWinner(String memberId) {
-    for (Entry entry : this.winningEntries) {
-      if (entry.getMemberId().equals(memberId)) {
-        return true;
+    if (existingWinningEntry != null) {
+      // as per competition policy 
+      // if existing prize is greater or equal, don't add another winning entry
+      if (existingWinningEntry.getPrize() >= entry.getPrize()) {
+        return;
       }
+
+      // if existing prize is less, remove it so it can be replaced by new 
+      this.winningEntries.remove(existingWinningEntry);
     }
-    return false;
+
+    this.winningEntries.add(entry);
   }
 
   /**
