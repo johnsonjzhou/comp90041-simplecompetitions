@@ -11,18 +11,30 @@ import java.util.ArrayList;
  */
 public abstract class Competition implements Serializable {
 
+  /** Entries are based on multiples of this amount */
   private static final int MIN_ENTRY_AMOUNT = 50;
-  private String name; //competition name
-  private int id; //competition identifier
+
+  /** competition name */
+  private String name; 
+
+  /** competition identifier */
+  private int id; 
+
+  /** the list of entries in the competition */
   private ArrayList<Entry> entries;
+
+  /** the list of winning entries */
   private ArrayList<Entry> winningEntries;
+
+  /** whether the competition is currently active */
   private boolean active;
+
+  /** whether operations are in test mode */
   private boolean testMode = false;
 
   /**
    * @param  id  the competition id
    * @param  name  the competition name
-   * @param  testMode  whether in test mode 
    */
   public Competition(int id, String name) {
     this.id = id;
@@ -140,6 +152,9 @@ public abstract class Competition implements Serializable {
     return this.winningEntries;
   }
 
+  /**
+   * Prints a summary of the competition
+   */
   public void report() {
     // competition summary 
     System.out.println(String.format(OutputFormat.SUMMARY_COMPETITION, 
@@ -190,6 +205,8 @@ public abstract class Competition implements Serializable {
   /**
    * Allows user to input bill number and validate against data. 
    * This method is *blocking* as the user must provide a valid bill Id.
+   * @param  console  the user console for input
+   * @param  data  a member of the data provider class 
    * @return  the bill if it passes all of the validation criteria 
    */
   public Bill selectBill(UserConsole console, DataProvider data) {
@@ -254,7 +271,16 @@ public abstract class Competition implements Serializable {
 
   /** abstract */
 
+  /**
+   * Adds an entry to the competition
+   * @param  console  user console for input  
+   * @param  data  data provider for bill and member information 
+   */
   public abstract void addEntries(UserConsole console, DataProvider data);
 
+  /**
+   * Draws winners
+   * @param  data  data provider for bill and member information 
+   */
   public abstract void drawWinners(DataProvider data);
 }

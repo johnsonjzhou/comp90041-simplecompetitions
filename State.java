@@ -12,16 +12,23 @@ import java.util.ArrayList;
  */
 public class State implements Serializable {
   
+  /** a list of Competitions */
   private ArrayList<Competition> competitions;
+
+  /** whether running mode is in test mode, default is False */
   private boolean testMode = false;
 
+  /**
+   * General constructor for creating a new state 
+   */
   public State() {
     this.competitions = new ArrayList<Competition>();
     this.testMode = false;
   }
 
   /**
-   * @param  state  consume a state object and update self 
+   * Create a state from an exsiting state object 
+   * @param  state  a state object to consume 
    */
   public State(State state) {
     this.competitions = state.competitions;
@@ -38,7 +45,7 @@ public class State implements Serializable {
   }
 
   /**
-   * @param  addCompetition  adds a Competition to the state 
+   * @param  competition  adds a Competition to the state 
    */
   public void addCompetition(Competition competition) {
     competition.setTestMode(this.testMode);

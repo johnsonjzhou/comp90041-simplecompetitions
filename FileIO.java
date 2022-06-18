@@ -16,10 +16,18 @@ import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.lang.SecurityException;
 
+/**
+ * Handles file based operations  
+ */
 public class FileIO {
 
+  /** File instance to work on */
   private File file;
+
+  /** Scanner instance for file reading */
   private Scanner reader;
+
+  /** Whether the file can be written to, default is False */
   private boolean readonly = true;
 
   /**
@@ -213,6 +221,7 @@ public class FileIO {
 
   /**
    * Reads an object from file 
+   * @return  an object read from file 
    * @throws  FileIOException  if an error occurs while reading the file 
    */
   public Object readObject() throws FileIOException {

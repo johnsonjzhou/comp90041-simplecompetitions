@@ -5,8 +5,12 @@
  */
 import java.util.Collections;
 
+/**
+ * Competition of the LuckyNumbers type 
+ */
 public class LuckyNumbersCompetition extends Competition {
 
+  /** Prizes associated with matching numbers, indexs are amount of umbers matched */
   private final int[] prizeAllocation = { 0, 0, 50, 100, 500, 1000, 5000, 50000 };
 
   /**
@@ -52,7 +56,7 @@ public class LuckyNumbersCompetition extends Competition {
   /**
    * Add entries to this competition 
    * @param  console  UserConsole to input bill id
-   * @param  dasta  DataProvider to provide bill and member information 
+   * @param  data  DataProvider to provide bill and member information 
    */
   public void addEntries(UserConsole console, DataProvider data) {
     Bill bill = this.selectBill(console, data);

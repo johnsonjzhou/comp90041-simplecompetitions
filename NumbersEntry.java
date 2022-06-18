@@ -6,13 +6,28 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Representing a type of manual entry of the LuckyNumbers competition
+ */
 public class NumbersEntry extends Entry {
 
-  private int[] numbers; 
-  private ArrayList<Integer> stagedNumbers; 
+  /** number of numbers constituting an entry  */
   public final int NUMBER_COUNT = 7;
+
+  /** maximum numeric value of any number in the entry  */
   public final int MAX_NUMBER = 35;
 
+  /** numbers within the entry */
+  private int[] numbers; 
+
+  /** staging of numbers as they are added to the entry */
+  private ArrayList<Integer> stagedNumbers; 
+
+  /**
+   * @param  entryId  the entry id
+   * @param  billId  associated bill ID
+   * @param  memberId  associated member ID 
+   */
   public NumbersEntry (int entryId, String billId, String memberId) {
     super(entryId, billId, memberId);
     this.stagedNumbers = new ArrayList<Integer>();

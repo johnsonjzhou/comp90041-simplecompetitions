@@ -5,12 +5,22 @@
  */
 import java.util.ArrayList;
 
+/**
+ * Repository of member and bill information, handling the loading and
+ * saving of data to and from csv files 
+ */
 public class DataProvider {
 
+  /** path to the member file */
   private String memberFile;
+
+  /** path to the bill file  */
   private String billFile; 
 
+  /** list of Member data objects */
   private ArrayList<Member> members;
+
+  /** list of Bill data objects */
   private ArrayList<Bill> bills;
 
   /**
@@ -99,6 +109,7 @@ public class DataProvider {
   }
 
   /**
+   * @param  memberId  the member ID to look up
    * @return  <code>True</code> if memberId matches a Member 
    */
   public boolean isValidMember(String memberId) {

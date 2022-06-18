@@ -6,9 +6,14 @@
 import java.util.ArrayList;
 
 /**
- * For testing purposes only 
+ * FOR TESTING PURPOSES ONLY, 
+ * NOT PART OF APPLICATION, DO NOT GRADE!
  */
 public class Test {
+  /**
+   * Entry for Test
+   * @param  params  command line params
+   */
   public static void main(String[] params) {
     
     // userInput();
@@ -25,9 +30,12 @@ public class Test {
     // autoNumbersEntry();
     // entryMatching();
     // objectWrite();
-    objectRead();
+    // objectRead();
   }
 
+  /**
+   * Tests the user input 
+   */
   public static void userInput() {
     UserConsole console = new UserConsole();
 
@@ -42,11 +50,18 @@ public class Test {
     }
   }
 
+  /**
+   * Tests string matching 
+   * @param  test  string to test against 
+   */
   public static void stringMatcher(String test) {
     boolean match = test.matches("^\\d{6}$");
     System.out.println(match);
   }
 
+  /**
+   * Tests loading a member 
+   */
   public static void loadMember() {
     String csv = "111111,John,john@abc.com";
     String csv1 = "11111m,John,john@abc.com";
@@ -65,6 +80,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests loading a bill 
+   */
   public static void loadBill() {
     // 100000,111111,300.5,false
     // 100013,,400.5,false
@@ -85,6 +103,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests loading a data provider 
+   */
   public static void dataProvider() {
     try {
       DataProvider data = new DataProvider("members.csv", "bills.csv");
@@ -95,6 +116,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests calculating eligible amount 
+   */
   public static void eligibleAmount() {
     double[] tests = { 299.9, 50.1, 50.5, 50, 49.9 };
     for (double billAmount : tests) {
@@ -107,6 +131,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests creating numeric entries 
+   */
   public static void numbersEntry() {
     int[] numbers = { 1, 2, 3, 4, 10, 7, 5 };
     // int[] numbers = { 1, 2, 3, 4, 10, 7, 45 };
@@ -124,6 +151,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests creating auto number entries 
+   */
   public static void autoNumbersEntry() {
     AutoNumbersEntry entry = new AutoNumbersEntry(1, "123456", "654321");
     try {
@@ -138,6 +168,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests entry number matching 
+   */
   public static void entryMatching() {
     int[] one = { 1, 2, 3, 4, 5, 6, 7 };
     int[] two = { 35, 2, 3, 4, 5, 10, 7 };
@@ -161,6 +194,9 @@ public class Test {
     }
   }
 
+  /** 
+   * Tests object write to file 
+   */
   public static void objectWrite() {
     FileIO file = new FileIO("test.dat");
     String test = new String("123");
@@ -177,6 +213,9 @@ public class Test {
     }
   }
 
+  /** 
+   * Tests object load from file 
+   */
   public static void objectRead() {
     FileIO file = new FileIO("test.dat");
     try {

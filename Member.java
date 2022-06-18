@@ -4,13 +4,24 @@
  * LMS username: zhoujj
  */
 
+/**
+ * Representing a member and associated information 
+ */
 public class Member implements CommaSeparated {
 
+  /** id is 6 digits  */
   public static final String ID_FORMAT = "^\\d{6}$";
+
+  /** csv has 3 columns */
   private static final int COL_NUMBER = 3;
 
+  /** the Member ID */
   private String id; 
+
+  /** the Member name */
   private String name;
+
+  /** the Member email  */
   private String email;
 
   /**

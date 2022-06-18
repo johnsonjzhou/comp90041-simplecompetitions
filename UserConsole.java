@@ -9,11 +9,17 @@ import java.lang.NumberFormatException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+/**
+ * General handler for user inputs through a Scanner instance and System.in 
+ */
 public class UserConsole {
 
   private Scanner stdin;
   private ArrayList<String> inputBuffer; 
 
+  /**
+   * General constructor 
+   */
   public UserConsole() {
     this.stdin = new Scanner(System.in);
     this.inputBuffer = new ArrayList<String>();
@@ -23,6 +29,7 @@ public class UserConsole {
 
   /**
    * Exposes the scanner used in the class, not recommneded
+   * @return  the Scanner instance 
    */
   public Scanner getScanner() {
     return this.stdin;
@@ -42,7 +49,7 @@ public class UserConsole {
    * and splitting at the spaces. 
    * This then enables to step through each of the input items iteratively. 
    * @param  preserveCase  <code>False</code> turns input into lower case 
-   * @return  the next string from the buffer 
+   * @return  the string from the input that is next in the buffer array 
    * @throws  NoSuchElementException  when directed inputs unexpectedly end 
    */
   public String readBufferedNext(boolean preserveCase) throws NoSuchElementException {
@@ -61,6 +68,7 @@ public class UserConsole {
 
   /**
    * Invokes readBufferNext with preserveCase parameter set to False 
+   * @return  the string from the input that is next in the buffer array 
    * @throws  NoSuchElementException  when directed inputs unexpectedly end
    */
   public String readBufferedNext() throws NoSuchElementException {
@@ -85,13 +93,14 @@ public class UserConsole {
 
   /**
    * Checks whether there is another item in the buffer 
+   * @return  <code>True</code> if there are more items in the buffer array 
    */
   public boolean hasBufferedNext() {
     return (this.inputBuffer.size() > 0);
   }
 
   /**
-   * Returns the size of the buffer as int 
+   * @return  the size of the buffer as int 
    */
   public int bufferedSize() {
     return this.inputBuffer.size();

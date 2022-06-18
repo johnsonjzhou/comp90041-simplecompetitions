@@ -13,8 +13,14 @@ import java.util.Random;
  */
 public class AutoNumbersEntry extends NumbersEntry {
 
+  /** seed for entry creation in normal mode */
   private static final int MEANING_OF_LIFE = 42;
 
+  /**
+   * @param  entryId  the entry id
+   * @param  billId  associated bill ID
+   * @param  memberId  associated member ID
+   */
   public AutoNumbersEntry(int entryId, String billId, String memberId) {
     super(entryId, billId, memberId);
   }

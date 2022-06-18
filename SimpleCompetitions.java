@@ -4,12 +4,23 @@
 * LMS username: zhoujj
 */
 
+/**
+ * Main class for the Simple Competitions application 
+ */
 public class SimpleCompetitions {
 
+  /** an instance of UserConsole to capture user input */
   private UserConsole console;
+
+  /** an instance of DataProvider to provid bill and member info */
   private DataProvider data;
+
+  /** the application state with competitions and running mode */
   private State state;
 
+  /**
+   * Base constructor for the application 
+   */
   public SimpleCompetitions() {
     this.console = new UserConsole();
     this.state = new State();

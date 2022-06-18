@@ -6,18 +6,28 @@
 import java.util.Random;
 import java.util.Collections;
 
+/**
+ * A type of RandomPick competition 
+ */
 public class RandomPickCompetition extends Competition {
+  /** value awarded for the first prize */
   private final int FIRST_PRIZE = 50000;
+
+  /** value awarded for the second prize */
   private final int SECOND_PRIZE = 5000;
+
+  /** value awarded for the third prize */
   private final int THIRD_PRIZE = 1000;
+
+  /** allocation of prize values in sorted order */
   private final int[] prizes = {FIRST_PRIZE, SECOND_PRIZE, THIRD_PRIZE};
 
+  /** maximum amount of winning entries */
   private final int MAX_WINNING_ENTRIES = 3;
 
   /**
    * @param  id  the competition id
    * @param  name  the competition name
-   * @param  testMode  whether in test mode 
    */
   public RandomPickCompetition(int id, String name) {
     super(id, name);
@@ -46,7 +56,7 @@ public class RandomPickCompetition extends Competition {
   /**
    * Add entries to this competition 
    * @param  console  UserConsole to input bill id
-   * @param  dasta  DataProvider to provide bill and member information 
+   * @param  data  DataProvider to provide bill and member information 
    */
   public void addEntries(UserConsole console, DataProvider data) {
     Bill bill = this.selectBill(console, data);

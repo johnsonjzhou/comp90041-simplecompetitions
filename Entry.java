@@ -12,12 +12,26 @@ import java.lang.Comparable;
  */
 public class Entry implements Comparable<Entry>, Serializable {
 
+  /** the endty ID */
   private int entryId;
+
+  /** associated Bill ID */
   private String billId;
+
+  /** associated Member ID */
   private String memberId;
+
+  /** whether this is a valid entry, default is False */
   private boolean valid;
+
+  /** the winning prize value, default is 0 */
   private int prize; 
 
+  /**
+   * @param  entryId  numeric id for the entry 
+   * @param  billId  associated bill ID
+   * @param  memberId  associated member ID
+   */
   public Entry(int entryId, String billId, String memberId) {
     this.entryId = entryId;
     this.billId = billId;
@@ -62,7 +76,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
-   * @param  set the prize to this value 
+   * @param  prize  set the prize to this value 
    */
   public void setPrize(int prize) {
     this.prize = prize;

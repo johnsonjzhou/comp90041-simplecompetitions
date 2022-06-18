@@ -4,14 +4,27 @@
  * LMS username: zhoujj
  */
 
+/**
+ * Representing a Bill that the customer has paid 
+ */
 public class Bill implements CommaSeparated {
 
+  /** id is 6 digits  */
   public static final String ID_FORMAT = "^\\d{6}$";
+
+  /** csv data has 4 columns */
   private static final int COL_NUMBER = 4;
 
+  /** Bill ID */
   private String id; 
+
+  /** Member ID */
   private String memberId; 
+
+  /** Bill amount */
   private double amount; 
+
+  /** Whether or not Bill was used in a competition */
   private boolean used; 
 
   /**
