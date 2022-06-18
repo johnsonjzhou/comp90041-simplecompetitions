@@ -168,7 +168,7 @@ public class SimpleCompetitions {
       }
       
       if (competition.getId() >= sequence) {
-        sequence = competition.getId();
+        sequence = competition.getId() + 1;
       }
     }
 
