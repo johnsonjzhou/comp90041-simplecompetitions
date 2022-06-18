@@ -20,9 +20,12 @@ public class SimpleCompetitions {
   /**
    * @return  True if user selected "y", False if user selected "n", otherwise loop 
    */
-  public static final boolean userSelectYes(UserConsole console) {
+  public static final boolean userSelectYes(UserConsole console, String prompt) {
     console.clearBuffer();
     choosing : while(true) {
+      if (prompt != null) {
+        System.out.println(prompt);
+      }
       String choice = console.readBufferedNext();
       console.clearBuffer();
 
@@ -47,10 +50,9 @@ public class SimpleCompetitions {
    */
   private void load() {
     System.out.println(OutputPrompts.WELCOME_MESSAGE);
-    System.out.println(OutputPrompts.LOAD_FILE);
 
     try {
-      if (SimpleCompetitions.userSelectYes(this.console)) {
+      if (SimpleCompetitions.userSelectYes(this.console, OutputPrompts.LOAD_FILE)) {
         // load the state from file 
         this.loadState();
 
@@ -179,9 +181,8 @@ public class SimpleCompetitions {
     }
 
     // create the competition
-    System.out.println(OutputPrompts.COMPETITION_TYPE);
-
     typeLoop : while(true) {
+      System.out.println(OutputPrompts.COMPETITION_TYPE);
       this.console.clearBuffer();
       type = this.console.readBufferedNext();
       this.console.clearBuffer();
@@ -314,9 +315,7 @@ public class SimpleCompetitions {
    * @throws  MenuException  if there was a problem writing the file 
    */
   private void saveState() throws MenuException {
-    System.out.println(OutputPrompts.SAVE_FILE);
-    
-    if (!SimpleCompetitions.userSelectYes(this.console)) {
+    if (!SimpleCompetitions.userSelectYes(this.console, OutputPrompts.SAVE_FILE)) {
       return;
     }
 

@@ -164,8 +164,7 @@ public class LuckyNumbersCompetition extends Competition {
     }
 
     // whether to continue adding more entries? 
-    System.out.println(OutputPrompts.ADD_MORE_ENTRIES);
-    if (SimpleCompetitions.userSelectYes(console)) {
+    if (SimpleCompetitions.userSelectYes(console, OutputPrompts.ADD_MORE_ENTRIES)) {
       this.addEntries(console, data);
     }
   }
