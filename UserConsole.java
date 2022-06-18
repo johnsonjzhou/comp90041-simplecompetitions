@@ -61,6 +61,7 @@ public class UserConsole {
 
   /**
    * Invokes readBufferNext with preserveCase parameter set to False 
+   * @throws  NoSuchElementException  when directed inputs unexpectedly end
    */
   public String readBufferedNext() throws NoSuchElementException {
     return this.readBufferedNext(false);

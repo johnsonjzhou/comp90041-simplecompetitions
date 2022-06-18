@@ -12,6 +12,7 @@ public interface CommaSeparated {
   /**
    * Parses data from one csv line 
    * @param  csv  comma separate data from csv file 
+   * @throws  DataFormatException  if the CSV data format is incorrect 
    */
   public void parseCsv(String csv) throws DataFormatException;
 

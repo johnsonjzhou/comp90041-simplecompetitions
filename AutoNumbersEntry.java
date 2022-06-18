@@ -24,6 +24,7 @@ public class AutoNumbersEntry extends NumbersEntry {
    *                identifier as seed for generating the lucky entry and 
    *                the number of entries in the currently active competition 
    *                to generate automated customers' entries.
+   * @throws  InvalidEntryException  if an error occurs when creating the entry
    */
   public void create(int seed) throws InvalidEntryException {
     ArrayList<Integer> validList = new ArrayList<Integer>();
@@ -41,6 +42,7 @@ public class AutoNumbersEntry extends NumbersEntry {
   /**
    * In normal mode, create an entry by randoming selecting a seed based on 
    * the MEANING_OF_LIFE 
+   * @throws  InvalidEntryException  if an error occurs when creating the entry 
    */
   @Override
   public void create() throws InvalidEntryException {

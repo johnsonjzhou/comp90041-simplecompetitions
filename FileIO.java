@@ -193,6 +193,11 @@ public class FileIO {
 
   /** object file ops */
 
+  /**
+   * Writes an object to file 
+   * @param  obj  the object to write to file 
+   * @throws  FileIOException  if an error occurs while writing the file 
+   */
   public void writeObject(Object obj) throws FileIOException {
     try {
       ObjectOutputStream outputStream = 
@@ -206,6 +211,10 @@ public class FileIO {
     }
   }
 
+  /**
+   * Reads an object from file 
+   * @throws  FileIOException  if an error occurs while reading the file 
+   */
   public Object readObject() throws FileIOException {
     try {
       ObjectInputStream inputStream = 

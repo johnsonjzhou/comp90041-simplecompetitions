@@ -16,6 +16,7 @@ public class Bill implements CommaSeparated {
 
   /**
    * @param  csv  comma separate data from csv file, invokes parseCsv
+   * @throws  DataFormatException  if the CSV data format is incorrect 
    */
   public Bill(String csv) throws DataFormatException {
     this.parseCsv(csv);
@@ -26,6 +27,7 @@ public class Bill implements CommaSeparated {
   /**
    * Parses bill data from csv
    * @param  csv  comma separate data from csv file 
+   * @throws  DataFormatException  if the CSV data format is incorrect 
    */
   public void parseCsv(String csv) throws DataFormatException {
     // 100000,111111,300.5,false

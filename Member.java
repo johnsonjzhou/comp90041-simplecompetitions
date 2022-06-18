@@ -15,6 +15,7 @@ public class Member implements CommaSeparated {
 
   /**
    * @param  csv  comma separate data from csv file, invokes parseCsv
+   * @throws  DataFormatException  if the CSV data format is incorrect 
    */
   public Member(String csv) throws DataFormatException {
     this.parseCsv(csv);
@@ -25,6 +26,7 @@ public class Member implements CommaSeparated {
   /**
    * Parses member data from csv
    * @param  csv  comma separate data from csv file 
+   * @throws  DataFormatException  if the CSV data format is incorrect 
    */
   public void parseCsv(String csv) throws DataFormatException {
     // 111111,John,john@abc.com 
