@@ -15,16 +15,16 @@ public class SimpleCompetitions {
     this.state = new State();
   }
 
-  /** private */
+  /** static */
 
   /**
    * @return  True if user selected "y", False if user selected "n", otherwise loop 
    */
-  private boolean userSelectYes() {
-    this.console.clearBuffer();
+  public static final boolean userSelectYes(UserConsole console) {
+    console.clearBuffer();
     choosing : while(true) {
-      String choice = this.console.readBufferedNext();
-      this.console.clearBuffer();
+      String choice = console.readBufferedNext();
+      console.clearBuffer();
 
       switch(choice) {
         case "y":
@@ -40,6 +40,8 @@ public class SimpleCompetitions {
     }
   }
 
+  /** private */
+
   /**
    * Loads the application
    */
@@ -48,7 +50,7 @@ public class SimpleCompetitions {
     System.out.println(OutputPrompts.LOAD_FILE);
 
     try {
-      if (this.userSelectYes()) {
+      if (SimpleCompetitions.userSelectYes(this.console)) {
         // load the state from file 
         this.loadState();
 
@@ -314,7 +316,7 @@ public class SimpleCompetitions {
   private void saveState() throws MenuException {
     System.out.println(OutputPrompts.SAVE_FILE);
     
-    if (!this.userSelectYes()) {
+    if (!SimpleCompetitions.userSelectYes(this.console)) {
       return;
     }
 
