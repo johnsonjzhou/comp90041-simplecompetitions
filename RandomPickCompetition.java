@@ -94,6 +94,12 @@ public class RandomPickCompetition extends Competition {
    * @param  data  of the DataProvider class
    */
   public void drawWinners(DataProvider data) {
+    // if there are no entries 
+    if (this.entrySize() < 1) {
+      System.out.println(OutputErrors.COMPETITION_NO_ENTRIES);
+      return;
+    }
+    
     Random randomGenerator = null;
     if (this.isTestMode()) {
         randomGenerator = new Random(this.getId());

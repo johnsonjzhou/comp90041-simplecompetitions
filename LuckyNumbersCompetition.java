@@ -182,6 +182,12 @@ public class LuckyNumbersCompetition extends Competition {
    * @param  data  data provider 
    */
   public void drawWinners(DataProvider data) {
+    // if there are no entries 
+    if (this.entrySize() < 1) {
+      System.out.println(OutputErrors.COMPETITION_NO_ENTRIES);
+      return;
+    }
+    
     // announce competition name and type 
     this.announceCreated(this.getClass().getSimpleName());
 
