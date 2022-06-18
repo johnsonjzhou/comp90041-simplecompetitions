@@ -4,6 +4,9 @@
  * LMS username: zhoujj
  */
 
+/**
+ * Classes implementing CommaSeparated can parse from and convert to data CSV
+ */
 public interface CommaSeparated {
   
   /**
