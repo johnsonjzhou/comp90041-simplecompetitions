@@ -76,7 +76,9 @@ public class LuckyNumbersCompetition extends Competition {
         console.clearBuffer();
 
         if (manualEntries > entryQuantity) {
-          System.out.println(OutputErrors.ENTRY_LIMIT_EXCEEDED);
+          System.out.println(String.format(OutputErrors.ENTRY_LIMIT_EXCEEDED, 
+            0, entryQuantity
+          ));
           continue manualEntryLoop;
         }
 
