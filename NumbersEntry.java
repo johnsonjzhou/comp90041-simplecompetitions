@@ -106,7 +106,7 @@ public class NumbersEntry extends Entry {
       }
     }
 
-    for (int i = 0; i < MAX_NUMBER; i++) {
+    for (int i = 0; i <= MAX_NUMBER; i++) {
       if (thisSpread[i] == 1 && otherSpread[i] == 1) {
         match++;
       }
