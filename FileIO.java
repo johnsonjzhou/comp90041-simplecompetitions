@@ -1,6 +1,7 @@
-/**
- * Handles text based file input and output
- * @author  Johnson Zhou 1302442 <zhoujj@student.unimelb.edu.au>
+/*
+ * Student name: Johnson Zhou
+ * Student ID: 1302442
+ * LMS username: zhoujj
  */
 import java.util.Scanner;
 import java.io.FileInputStream;
