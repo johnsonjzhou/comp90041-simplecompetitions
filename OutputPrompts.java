@@ -18,6 +18,9 @@ public final class OutputPrompts {
   public static final String RUN_MODE = 
     "Which mode would you like to run? (Type T for Testing, and N for Normal mode):";
 
+  public static final String FILE_NAME = 
+    "File name:";
+
   public static final String MEMBER_FILE = 
     "Member file: ";  //! trailing whitespace
 

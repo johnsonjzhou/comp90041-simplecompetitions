@@ -3,9 +3,13 @@
  * Student ID: 1302442
  * LMS username: zhoujj
  */
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Competition {
+/**
+ * Implements Serializable so it can be saved to file 
+ */
+public abstract class Competition implements Serializable {
 
   private static final int MIN_ENTRY_AMOUNT = 50;
   private String name; //competition name

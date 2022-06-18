@@ -82,4 +82,10 @@ public final class OutputErrors {
 
   public static final String ENTRY_GENERATE_ERROR = 
     "An error occurred. An entry could not be generated.";
+
+  public static final String FILE_SAVE_ERROR = 
+    "An error occurred when trying to save the file.";
+
+  public static final String FILE_LOAD_ERROR = 
+    "An error occurred when trying to load the file.";
 }

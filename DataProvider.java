@@ -109,6 +109,12 @@ public class DataProvider {
     );
   }
 
+  public void saveDataFiles() {
+    // todo: save to the bills file
+    // todo: save to the members file 
+    // todo: create backup first before writing file 
+  }
+
   /** override */
 
   /**

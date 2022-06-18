@@ -3,9 +3,14 @@
  * Student ID: 1302442
  * LMS username: zhoujj
  */
+import java.io.Serializable;
 import java.lang.Comparable;
 
-public class Entry implements Comparable<Entry> {
+/**
+ * Implements Comparable so it can be sorted in the list 
+ * Implements Serializable so it can be saved to file 
+ */
+public class Entry implements Comparable<Entry>, Serializable {
 
   private int entryId;
   private String billId;

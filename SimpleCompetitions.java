@@ -17,41 +17,75 @@ public class SimpleCompetitions {
 
   /** private */
 
-  private void load() {
-    String fileMode, testMode, memberFile, billFile;
+  /**
+   * @return  True if user selected "y", False if user selected "n", otherwise loop 
+   */
+  private boolean userSelectYes() {
+    this.console.clearBuffer();
+    choosing : while(true) {
+      String choice = this.console.readBufferedNext();
+      this.console.clearBuffer();
 
-    System.out.println(OutputPrompts.LOAD_FILE);
-    fileMode = console.readBufferedNext();
-    console.clearBuffer();
+      switch(choice) {
+        case "y":
+          return true;
 
-    // todo file load mode 
-    
-    modeLoop : while(true) {
-      System.out.println(OutputPrompts.RUN_MODE);
-      testMode = console.readBufferedNext();
-      console.clearBuffer();
-
-      switch (testMode) {
-        case "t":
-          this.state.setTestMode(true);
-        case "n": 
-          break modeLoop;
+        case "n":
+          return false;
 
         default:
           System.out.println(OutputErrors.UNSUPPORTED_OPTION);
-          continue modeLoop;
+          continue choosing;
       }
     }
+  }
+
+  private void load() {
+    System.out.println(OutputPrompts.LOAD_FILE);
+
+    try {
+      if (this.userSelectYes()) {
+        // load the state from file 
+        this.loadState();
+
+      } else {
+        // ask the user to choose a run mode 
+        modeLoop : while(true) {
+          System.out.println(OutputPrompts.RUN_MODE);
+          String testMode = console.readBufferedNext();
+          console.clearBuffer();
     
-    this.loadDataFiles();
+          switch (testMode) {
+            case "t":
+              this.state.setTestMode(true);
+            case "n": 
+              break modeLoop;
+    
+            default:
+              System.out.println(OutputErrors.UNSUPPORTED_OPTION);
+              continue modeLoop;
+          }
+        }
+      }
+      
+      this.loadDataFiles();
+
+    } catch (DataAccessException | DataFormatException e) {
+      // @see  https://edstem.org/au/courses/7656/discussion/887137
+      System.out.println(e.getMessage());
+      this.exit(1);
+    }
+    
     this.menuLoop();
   }
 
   /**
    * Initiates data provider by loading the members and bills files. 
    * Program will exit if DataAccessException or DataFormatException is thrown. 
+   * @throws  DataAccessException  if error in accessing member or bill file 
+   * @throws  DataFormatException  if error in the format of bill or member files 
    */
-  private void loadDataFiles() {
+  private void loadDataFiles() throws DataAccessException, DataFormatException{
     String memberFile, billFile; 
 
     System.out.println(OutputPrompts.MEMBER_FILE);
@@ -62,13 +96,7 @@ public class SimpleCompetitions {
     billFile = console.readBufferedNext(true);
     console.clearBuffer();
 
-    try {
-      this.data = new DataProvider(memberFile, billFile);
-    } catch (DataAccessException | DataFormatException e) {
-      // @see  https://edstem.org/au/courses/7656/discussion/887137
-      System.out.println(e.getMessage());
-      this.exit(1);
-    }
+    this.data = new DataProvider(memberFile, billFile);
   }
 
   /**
@@ -243,20 +271,80 @@ public class SimpleCompetitions {
     }
   }
 
+  /** 
+   * Loads the state from a file 
+   */
+  private void loadState() throws DataAccessException {
+    System.out.println(OutputPrompts.FILE_NAME);
+    this.console.clearBuffer();
+    String filepath = this.console.readBufferedNext();
+    this.console.clearBuffer();
+
+    try {
+      FileIO file = new FileIO(filepath);
+      Object loaded = file.readObject();
+
+      // save the state if valid 
+      if (loaded instanceof State) {
+        this.state = new State((State) loaded);
+        return;
+      } 
+
+      // otherwise abort
+      throw new DataAccessException(OutputErrors.FILE_LOAD_ERROR);
+    } catch (FileIOException e) {
+      throw new DataAccessException(OutputErrors.FILE_LOAD_ERROR);
+    }
+
+  }
+
+  /** 
+   * Saves the state to a file 
+   * @throws  MenuException  if there was a problem writing the file 
+   */
+  private void saveState() throws MenuException {
+    System.out.println(OutputPrompts.SAVE_FILE);
+    
+    if (!this.userSelectYes()) {
+      return;
+    }
+
+    try {
+      System.out.println(OutputPrompts.FILE_NAME);
+      this.console.clearBuffer();
+      String filepath = this.console.readBufferedNext();
+      this.console.clearBuffer();
+
+      // todo  create backup first if file exists 
+      FileIO file = new FileIO(filepath);
+      file.writeObject(this.state);
+
+      this.data.saveDataFiles();
+
+    } catch (FileIOException e) {
+      throw new MenuException(OutputErrors.FILE_SAVE_ERROR);
+    }
+  }
+
   private void exit(int status) {
     this.console.close();
     System.out.println(OutputPrompts.GOODBYE);
     System.exit(status);
   }
 
-  private void exit() {
+  /**
+   * @throws  MenuException  if there was a problem writing the file 
+   */
+  private void exit()  throws MenuException {
+    this.saveState();
     this.exit(0);
   }
 
   /** public */
 
+  @Deprecated
   public void report() {
-    
+    // moved to displaySummary 
   }
 
   /**
