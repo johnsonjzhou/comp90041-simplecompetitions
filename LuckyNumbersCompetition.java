@@ -16,7 +16,8 @@ public class LuckyNumbersCompetition extends Competition {
    */
   public LuckyNumbersCompetition(int id, String name) {
     super(id, name);
-    this.announceCreated(this.getClass().getSimpleName());
+    this.announceCreated();
+    this.announceName(this.getClass().getSimpleName());
   }
 
   private void announceWinners(DataProvider data) {
@@ -181,7 +182,7 @@ public class LuckyNumbersCompetition extends Competition {
     }
     
     // announce competition name and type 
-    this.announceCreated(this.getClass().getSimpleName());
+    this.announceName(this.getClass().getSimpleName());
 
     // auto generate a winning entry 
     AutoNumbersEntry winningEntry = new AutoNumbersEntry(0, "0", "0");

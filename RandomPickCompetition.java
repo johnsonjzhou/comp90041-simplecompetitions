@@ -21,7 +21,8 @@ public class RandomPickCompetition extends Competition {
    */
   public RandomPickCompetition(int id, String name) {
     super(id, name);
-    this.announceCreated(this.getClass().getSimpleName());
+    this.announceCreated();
+    this.announceName(this.getClass().getSimpleName());
   }
 
   private void announceWinners(DataProvider data) {

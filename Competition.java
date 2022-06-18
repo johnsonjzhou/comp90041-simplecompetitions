@@ -169,11 +169,14 @@ public abstract class Competition implements Serializable {
     System.out.println(String.format(OutputFormat.SUMMARY_PRIZES, totalPrize));
   }
 
+  public void announceCreated() {
+    System.out.println(OutputPrompts.COMPETITION_CREATED);
+  }
+
   /**
    * @param  type  invoke using this.getClass().getSimpleName() 
    */
-  public void announceCreated(String type) {
-    System.out.println(OutputPrompts.COMPETITION_CREATED);
+  public void announceName(String type) {
     System.out.println(
       String.format(OutputFormat.COMPETITION_CREATED, 
         this.id, this.name, type
