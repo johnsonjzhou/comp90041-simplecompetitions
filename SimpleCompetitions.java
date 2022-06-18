@@ -15,34 +15,6 @@ public class SimpleCompetitions {
     this.state = new State();
   }
 
-  /** static */
-
-  /**
-   * @return  True if user selected "y", False if user selected "n", otherwise loop 
-   */
-  public static final boolean userSelectYes(UserConsole console, String prompt) {
-    console.clearBuffer();
-    choosing : while(true) {
-      if (prompt != null) {
-        System.out.println(prompt);
-      }
-      String choice = console.readBufferedNext();
-      console.clearBuffer();
-
-      switch(choice) {
-        case "y":
-          return true;
-
-        case "n":
-          return false;
-
-        default:
-          System.out.println(OutputErrors.UNSUPPORTED_OPTION);
-          continue choosing;
-      }
-    }
-  }
-
   /** private */
 
   /**
@@ -337,6 +309,10 @@ public class SimpleCompetitions {
     }
   }
 
+  /**
+   * Exits the application with a given status
+   * @param  status  status code to applyl with the exit 
+   */
   private void exit(int status) {
     this.console.close();
     System.out.println(OutputPrompts.GOODBYE);
@@ -353,9 +329,33 @@ public class SimpleCompetitions {
 
   /** public */
 
-  @Deprecated
-  public void report() {
-    // moved to displaySummary 
+  /**
+   * Requests user input in the form of "y" for yes or "n" for no.
+   * @param  console  an instance of UserConsole to accept user inputs
+   * @param  prompt  optionally print a message 
+   * @return  True if user selected "y", False if user selected "n", otherwise loop 
+   */
+  public static final boolean userSelectYes(UserConsole console, String prompt) {
+    console.clearBuffer();
+    choosing : while(true) {
+      if (prompt != null) {
+        System.out.println(prompt);
+      }
+      String choice = console.readBufferedNext();
+      console.clearBuffer();
+
+      switch(choice) {
+        case "y":
+          return true;
+
+        case "n":
+          return false;
+
+        default:
+          System.out.println(OutputErrors.UNSUPPORTED_OPTION);
+          continue choosing;
+      }
+    }
   }
 
   /**
