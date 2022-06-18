@@ -6,6 +6,9 @@
 
 public class Member implements CommaSeparated {
 
+  public static final String ID_FORMAT = "^\\d{6}$";
+  private static final int COL_NUMBER = 3;
+
   private String id; 
   private String name;
   private String email;
@@ -29,12 +32,12 @@ public class Member implements CommaSeparated {
     String[] values = csv.split(",");
 
     // validate columns  
-    if (values.length != 3) {
-      throw new DataFormatException("Member data requires 3 columns");
+    if (values.length != Member.COL_NUMBER) {
+      throw new DataFormatException("Member data column number incorrect");
     }
 
     // validate id
-    if (!values[0].matches("^\\d{6}$")) {
+    if (!values[0].matches(Member.ID_FORMAT)) {
       throw new DataFormatException("Member ID should be 6 digits");
     }
 

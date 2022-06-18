@@ -6,6 +6,9 @@
 
 public class Bill implements CommaSeparated {
 
+  public static final String ID_FORMAT = "^\\d{6}$";
+  private static final int COL_NUMBER = 4;
+
   private String id; 
   private String memberId; 
   private double amount; 
@@ -31,17 +34,17 @@ public class Bill implements CommaSeparated {
     String[] values = csv.split(",");
 
     // validate columns  
-    if (values.length != 4) {
-      throw new DataFormatException("Bill data requires 4 columns");
+    if (values.length != Bill.COL_NUMBER) {
+      throw new DataFormatException("Bill data column number incorrect");
     }
 
     // validate id 
-    if (!values[0].matches("^\\d{6}$")) {
-      throw new DataFormatException("Bill ID should be 6 digits");
+    if (!values[0].matches(Bill.ID_FORMAT)) {
+      throw new DataFormatException("Bill ID format incorrect");
     }
 
     // validate member id 
-    if (values[1].length() > 0 && !values[1].matches("^\\d{6}$")) {
+    if (values[1].length() > 0 && !values[1].matches(Member.ID_FORMAT)) {
       throw new DataFormatException("Member ID should be 6 digits");
     }
 
