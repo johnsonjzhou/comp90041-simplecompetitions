@@ -327,8 +327,10 @@ public class SimpleCompetitions {
 
       FileIO file = new FileIO(filepath);
       file.writeObject(this.state);
+      System.out.println(OutputPrompts.SAVE_FILE_SUCCESS);
 
       this.data.saveDataFiles();
+      System.out.println(OutputPrompts.BILL_FILE_UPDATED);
 
     } catch (FileIOException e) {
       throw new MenuException(OutputErrors.FILE_SAVE_ERROR);
