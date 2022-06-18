@@ -5,6 +5,8 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.File;
 
@@ -186,6 +188,33 @@ public class FileIO {
     PrintWriter file = this.openWritableFile(true);
     file.println(text);
     file.close();
+  }
+
+  /** object file ops */
+
+  public void writeObject(Object obj) throws FileIOException {
+    try {
+      ObjectOutputStream outputStream = 
+        new ObjectOutputStream(new FileOutputStream(this.file));
+      outputStream.writeObject(obj);
+      outputStream.close();
+    } catch (Exception e) {
+      throw new FileIOException("Could not write object to file.");
+    } finally {
+      
+    }
+  }
+
+  public Object readObject() throws FileIOException {
+    try {
+      ObjectInputStream inputStream = 
+        new ObjectInputStream(new FileInputStream(this.file));
+      Object readObject = inputStream.readObject();
+      inputStream.close();
+      return readObject;
+    } catch (Exception e) {
+      throw new FileIOException("Could not read object from file");
+    }
   }
 
   /** other file ops */
