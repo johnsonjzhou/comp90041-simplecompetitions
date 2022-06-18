@@ -20,7 +20,7 @@ public final class OutputFormat {
 
   // Member ID: 444444, Member Name: Long, Prize: 50000
   public static final String WINNING_ENTRY_LUCKYNUMBERS = 
-    "Member ID: %s, Member Name: %s, Prize: %d";
+    "Member ID: %s, Member Name: %s, Prize: %-5d";
 
   // --> Entry ID: 3, Numbers:  2  7 14 18 22 25 35 [Auto]
   public static final String WINNING_ENTRY_DETAILS = 
@@ -28,7 +28,7 @@ public final class OutputFormat {
 
   // Member ID: 111111, Member Name: John, Entry ID: 5, Prize: 5000 
   public static final String WINNING_ENTRY_RANDOMPICK = 
-    "Member ID: %s, Member Name: %s, Entry ID: %d, Prize: %d";
+    "Member ID: %s, Member Name: %s, Entry ID: %d, Prize: %-5d";
 
   // Numbers:  5  7 16 21 23 26 28 [Auto]
   // * fixed 2-width nunmbers 
