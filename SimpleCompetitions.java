@@ -274,9 +274,7 @@ public class SimpleCompetitions {
    */
   private void loadState() throws DataAccessException {
     System.out.println(OutputPrompts.FILE_NAME);
-    this.console.clearBuffer();
-    String filepath = this.console.readBufferedNext();
-    this.console.clearBuffer();
+    String filepath = this.console.readNextLine();
 
     try {
       FileIO file = new FileIO(filepath);
@@ -306,9 +304,7 @@ public class SimpleCompetitions {
 
     try {
       System.out.println(OutputPrompts.FILE_NAME);
-      this.console.clearBuffer();
-      String filepath = this.console.readBufferedNext(true);
-      this.console.clearBuffer();
+      String filepath = this.console.readNextLine();
 
       FileIO file = new FileIO(filepath);
       file.writeObject(this.state);
