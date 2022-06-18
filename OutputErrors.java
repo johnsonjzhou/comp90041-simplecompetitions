@@ -13,7 +13,7 @@ public final class OutputErrors {
     "Invalid mode! Please choose again.";
   
   public static final String NUMBER_EXPECTED = 
-    "A number is expected. Please try again.";
+    "Invalid input! Numbers are expected. Please try again!";
 
   public static final String NO_ACTIVE_COMPETITION = 
     "There is no active competition. Please create one!";
