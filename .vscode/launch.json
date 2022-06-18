@@ -29,7 +29,7 @@
       "name": "Launch with visible test",
       "request": "launch",
       "mainClass": "SimpleCompetitions",
-      "args": "< ~/git/comp90041-simplecompetitions/tests/visible1.in"
+      "args": "< ~/git/comp90041-simplecompetitions/tests/custom1.in"
     },
   ]
 }
