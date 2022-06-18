@@ -51,10 +51,11 @@ public class RandomPickCompetition extends Competition {
     double billAmount = bill.getAmount();
     int entryQuantity = this.calculateEligibleEntries(billAmount);
     
+    // follow through line break from validateBill
+    System.out.println();
+    
     // return to main menu if bill is not eligible for any entries 
     if (entryQuantity < 1) { 
-      // follow through line break from validateBill
-      System.out.println();
       return; 
     }
 
