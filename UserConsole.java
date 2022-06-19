@@ -14,8 +14,14 @@ import java.util.NoSuchElementException;
  */
 public class UserConsole {
 
+  /** regex pattern for matching everything */
+  public static final String MATCH_ALL = ".*";
+
   /** regex pattern for digits only */
   public static final String DIGITS_ONLY = "^\\d+$";
+
+  /** regex pattern for integer list separated by spaces */
+  public static final String INTEGER_LIST = "^(\\d)+(\\s+\\d)*?$";
 
   /** regex pattern for y/n prompts */
   public static final String YES_NO_BINARY = "^[yYnN]{1}$";
@@ -72,42 +78,48 @@ public class UserConsole {
    * Creates a read buffer by reading the entire input line 
    * and splitting at the spaces. 
    * This then enables to step through each of the input items iteratively. 
-   * @param  preserveCase  <code>False</code> turns input into lower case 
+   * @param  pattern  regex pattern to match for the line input 
    * @return  the string from the input that is next in the buffer array 
+   * @throws  UnsupportedInputException  when input does not match pattern 
    * @throws  NoSuchElementException  when directed inputs unexpectedly end 
    */
-  public String readBufferedNext(boolean preserveCase) throws NoSuchElementException {
+  public String readBufferedNext(String pattern) 
+  throws UnsupportedInputException, NoSuchElementException {
     // return and remove the first element in the inputBuffer
     if (this.inputBuffer.size() > 0) {
       return this.inputBuffer.remove(0);
     }
 
-    // receive from the console and add to buffer
-    String input = this.stdin.nextLine();
+    // receive from the console and add to buffer while matching the pattern 
+    String input = this.readNextLinePattern(pattern);
+
     for (String next : input.split(" ")) {
-      this.inputBuffer.add(preserveCase ? next : next.toLowerCase());
+      this.inputBuffer.add(next.toLowerCase());
     }
-    return this.readBufferedNext(preserveCase);
+    return this.readBufferedNext(pattern);
   }
 
   /**
    * Invokes readBufferNext with preserveCase parameter set to False 
    * @return  the string from the input that is next in the buffer array 
+   * @throws  UnsupportedInputException  when input does not match pattern 
    * @throws  NoSuchElementException  when directed inputs unexpectedly end
    */
-  public String readBufferedNext() throws NoSuchElementException {
-    return this.readBufferedNext(false);
+  public String readBufferedNext()
+  throws UnsupportedInputException, NoSuchElementException {
+    return this.readBufferedNext(UserConsole.MATCH_ALL);
   }
 
   /**
    * Invokes <b>readBufferedNext</b> and parses to integer 
    * @return  next token in the input buffer as int 
+   * @throws  UnsupportedInputException  when input does not match pattern 
    * @throws  NonNumberException  if string could not be parsed to integer 
    * @throws  NoSuchElementException  when directed inputs unexpectedly end 
    */
   public int readBufferedNextInt() throws 
-    NoSuchElementException, NonNumberException {
-    String next = this.readBufferedNext(); 
+  UnsupportedInputException, NoSuchElementException, NonNumberException {
+    String next = this.readBufferedNext(UserConsole.INTEGER_LIST); 
     try {
       return Integer.parseInt(next);
     } catch (NumberFormatException e) {

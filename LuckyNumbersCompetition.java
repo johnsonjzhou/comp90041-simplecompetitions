@@ -112,7 +112,7 @@ public class LuckyNumbersCompetition extends Competition {
           try {
             int number = console.readBufferedNextInt();
             manualEntry.stage(number);
-          } catch (NonNumberException e) {
+          } catch (UnsupportedInputException | NonNumberException e) {
             System.out.println(OutputErrors.NUMBER_EXPECTED);
             continue createEntry;
           } catch (InvalidEntryException e) {
