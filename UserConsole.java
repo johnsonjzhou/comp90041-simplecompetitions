@@ -21,7 +21,7 @@ public class UserConsole {
   public static final String DIGITS_ONLY = "^\\d+$";
 
   /** regex pattern for integer list separated by spaces */
-  public static final String INTEGER_LIST = "^(\\d)+(\\s+\\d)*?$";
+  public static final String INTEGER_LIST = "^(\\d+)(\\s\\d+)*?$";
 
   /** regex pattern for y/n prompts */
   public static final String YES_NO_BINARY = "^[yYnN]{1}$";
