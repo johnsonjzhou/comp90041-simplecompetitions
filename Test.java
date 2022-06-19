@@ -31,6 +31,7 @@ public class Test {
     // entryMatching();
     // objectWrite();
     // objectRead();
+    patternMatching();
   }
 
   /**
@@ -45,7 +46,7 @@ public class Test {
       int test2 = console.readBufferedNextInt();
       System.out.println(test2);
       System.out.println(console.bufferedSize());
-    } catch(NonNumberException e) {
+    } catch(UnsupportedInputException | NonNumberException e) {
       System.out.println(e.getMessage());
     }
   }
@@ -63,11 +64,11 @@ public class Test {
    * Tests loading a member 
    */
   public static void loadMember() {
-    String csv = "111111,John,john@abc.com";
-    String csv1 = "11111m,John,john@abc.com";
-    String csv2 = "111111,,john@abc.com";
-    String csv3 = "11111,John,john@abc.com";
-    String csv4 = "111111,John,";
+    // String csv = "111111,John,john@abc.com";
+    // String csv1 = "11111m,John,john@abc.com";
+    // String csv2 = "111111,,john@abc.com";
+    // String csv3 = "11111,John,john@abc.com";
+    // String csv4 = "111111,John,";
     String csv5 = ",John,john@abc.com";
 
     try {
@@ -172,8 +173,8 @@ public class Test {
    * Tests entry number matching 
    */
   public static void entryMatching() {
-    int[] one = { 1, 2, 3, 4, 5, 6, 7 };
-    int[] two = { 35, 2, 3, 4, 5, 10, 7 };
+    // int[] one = { 1, 2, 3, 4, 5, 6, 7 };
+    // int[] two = { 35, 2, 3, 4, 5, 10, 7 };
 
     NumbersEntry entryOne = new NumbersEntry(1, "1234", "1234");
     NumbersEntry entryTwo = new NumbersEntry(2, "1234", "1234");
@@ -225,6 +226,22 @@ public class Test {
       System.out.println(item);
     } catch (FileIOException e) {
       System.out.println(e.getCause().getMessage());
+    }
+  }
+
+  public static void patternMatching() {
+    // String pattern = UserConsole.YES_NO_BINARY;
+    String pattern = UserConsole.INTEGER_LIST;
+    UserConsole console = new UserConsole();
+    testing : while(true) {
+      try {
+        String input = console.readNextLinePattern(pattern);
+        System.out.println(input);
+        break testing;
+      } catch (Exception e) {
+        System.out.println("Does not match");
+        continue testing; 
+      }
     }
   }
 }
