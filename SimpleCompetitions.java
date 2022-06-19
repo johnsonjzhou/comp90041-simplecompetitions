@@ -1,10 +1,10 @@
-import java.util.NoSuchElementException;
-
 /*
 * Student name: Johnson Zhou
 * Student ID: 1302442
 * LMS username: zhoujj
 */
+
+import java.util.NoSuchElementException;
 
 /**
  * Main class for the Simple Competitions application 
