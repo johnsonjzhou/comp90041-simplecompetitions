@@ -44,19 +44,22 @@ public class SimpleCompetitions {
       } else {
         // ask the user to choose a run mode 
         modeLoop : while(true) {
-          System.out.println(OutputPrompts.RUN_MODE);
-          String testMode = console.readBufferedNext();
-          console.clearBuffer();
-    
-          switch (testMode) {
-            case "t":
-              this.state.setTestMode(true);
-            case "n": 
-              break modeLoop;
-    
-            default:
-              System.out.println(OutputErrors.RUN_MODE_INVALID);
-              continue modeLoop;
+          try {
+            System.out.println(OutputPrompts.RUN_MODE);
+            String pattern = "^[tTnN]{1}$";
+            String testMode = console.readNextLinePattern(pattern).toLowerCase();
+      
+            switch (testMode) {
+              case "t": 
+                this.state.setTestMode(true);
+              case "n": 
+                break modeLoop;
+              default:
+                throw new UnsupportedInputException();
+            }
+          } catch (UnsupportedInputException e) {
+            System.out.println(OutputErrors.RUN_MODE_INVALID);
+            continue modeLoop;
           }
         }
       }
@@ -67,6 +70,12 @@ public class SimpleCompetitions {
       // @see  https://edstem.org/au/courses/7656/discussion/887137
       System.out.println(e.getMessage());
       this.exit(1);
+    } catch (NoSuchElementException e) {
+      System.out.println(OutputErrors.GENERAL_ERROR);
+      this.exit(1);
+    } catch (Exception e) {
+      System.out.println(OutputErrors.GENERAL_ERROR);
+      this.exit(2);
     }
     
     this.menuLoop();
@@ -82,12 +91,10 @@ public class SimpleCompetitions {
     String memberFile, billFile; 
 
     System.out.println(OutputPrompts.MEMBER_FILE);
-    memberFile = console.readBufferedNext(true);
-    console.clearBuffer();
+    memberFile = console.readNextLine();
 
     System.out.println(OutputPrompts.BILL_FILE);
-    billFile = console.readBufferedNext(true);
-    console.clearBuffer();
+    billFile = console.readNextLine();
 
     this.data = new DataProvider(memberFile, billFile);
   }
@@ -104,9 +111,8 @@ public class SimpleCompetitions {
       }
 
       try {
-        this.console.clearBuffer();
-        int selection = this.console.readBufferedNextInt();
-        this.console.clearBuffer();
+        String input = this.console.readNextLinePattern(UserConsole.DIGITS_ONLY);
+        int selection = Integer.parseInt(input);
 
         switch(selection) {
           case 1: 
@@ -133,7 +139,7 @@ public class SimpleCompetitions {
             System.out.println(OutputErrors.UNSUPPORTED_OPTION);
             continue menuLoop;
         }
-      } catch (NonNumberException e) {
+      } catch (NumberFormatException | UnsupportedInputException e) {
         System.out.println(OutputErrors.NUMBER_EXPECTED);
         continue menuLoop;
       } catch (MenuException e) {
@@ -172,17 +178,14 @@ public class SimpleCompetitions {
     // create the competition
     typeLoop : while(true) {
       System.out.println(OutputPrompts.COMPETITION_TYPE);
-      this.console.clearBuffer();
-      type = this.console.readBufferedNext();
-      this.console.clearBuffer();
 
-      switch(type) {
-        case "l": case"r": 
-          break typeLoop;
-
-        default: 
-          System.out.println(OutputErrors.INVALID_COMPETITION_TYPE);
-          continue typeLoop;
+      try {
+        String pattern = "^[lLrR]{1}$";
+        type = this.console.readNextLinePattern(pattern).toLowerCase();
+        break typeLoop;
+      } catch (UnsupportedInputException e) {
+        System.out.println(OutputErrors.INVALID_COMPETITION_TYPE);
+        continue typeLoop;
       }
     }
 
@@ -337,7 +340,7 @@ public class SimpleCompetitions {
   /**
    * @throws  MenuException  if there was a problem writing the file 
    */
-  private void exit()  throws MenuException {
+  private void exit() throws MenuException {
     this.saveState();
     this.exit(0);
   }
@@ -352,24 +355,28 @@ public class SimpleCompetitions {
    * @return  True if user selected "y", False if user selected "n", otherwise loop 
    */
   public static final boolean userSelectYes(UserConsole console, String prompt) {
-    console.clearBuffer();
     choosing : while(true) {
       if (prompt != null) {
         System.out.println(prompt);
       }
-      String choice = console.readBufferedNext();
-      console.clearBuffer();
 
-      switch(choice) {
-        case "y":
-          return true;
+      try {
+        String choice = 
+          console.readNextLinePattern(UserConsole.YES_NO_BINARY).toLowerCase();
 
-        case "n":
-          return false;
+        switch(choice) {
+          case "y":
+            return true;
 
-        default:
-          System.out.println(OutputErrors.UNSUPPORTED_OPTION);
-          continue choosing;
+          case "n":
+            return false;
+
+          default:
+            throw new UnsupportedInputException();
+        }
+      } catch (UnsupportedInputException e) {
+        System.out.println(OutputErrors.UNSUPPORTED_OPTION);
+        continue choosing;
       }
     }
   }

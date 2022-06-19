@@ -222,11 +222,11 @@ public abstract class Competition implements Serializable {
     billLoop : while(true) {
       System.out.println(OutputPrompts.BILL_ID);
 
-      String billId = console.readBufferedNext();
-      console.clearBuffer();
-
       // 1) checking for valid bill id
-      if (!billId.matches(Bill.ID_FORMAT)) {
+      String billId;
+      try {
+        billId = console.readNextLinePattern(Bill.ID_FORMAT);
+      } catch (UnsupportedInputException e) {
         System.out.println(OutputErrors.BILL_NUMBER);
         continue billLoop;
       }

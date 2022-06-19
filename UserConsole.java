@@ -14,7 +14,16 @@ import java.util.NoSuchElementException;
  */
 public class UserConsole {
 
+  /** regex pattern for digits only */
+  public static final String DIGITS_ONLY = "^\\d+$";
+
+  /** regex pattern for y/n prompts */
+  public static final String YES_NO_BINARY = "^[yYnN]{1}$";
+
+  /** Scanner instance */
   private Scanner stdin;
+
+  /** buffer used for buffered reads  */
   private ArrayList<String> inputBuffer; 
 
   /**
@@ -42,6 +51,21 @@ public class UserConsole {
    */
   public String readNextLine() {
     return this.stdin.nextLine();
+  }
+
+  /**
+   * Reads the next line from the input stream and matches against the pattern
+   * @param  pattern  the pattern to match against
+   * @return  the input as String if pattern matches
+   * @throws  UnsupportedInputException  if pattern does not match 
+   */
+  public String readNextLinePattern(String pattern) throws UnsupportedInputException {
+    String nextLine = this.readNextLine();
+    if (nextLine.matches(pattern)) {
+      return nextLine;
+    } else {
+      throw new UnsupportedInputException("Non matching input");
+    }
   }
 
   /**

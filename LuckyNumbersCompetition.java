@@ -79,8 +79,8 @@ public class LuckyNumbersCompetition extends Competition {
     int manualEntries;
     manualEntryLoop : while(true) {
       try {
-        manualEntries = console.readBufferedNextInt();
-        console.clearBuffer();
+        String input = console.readNextLinePattern(UserConsole.DIGITS_ONLY);
+        manualEntries = Integer.parseInt(input);
 
         if (manualEntries > entryQuantity) {
           System.out.println(String.format(OutputErrors.ENTRY_LIMIT_EXCEEDED, 
@@ -90,7 +90,7 @@ public class LuckyNumbersCompetition extends Competition {
         }
 
         break manualEntryLoop;
-      } catch (NonNumberException e) {
+      } catch (NumberFormatException | UnsupportedInputException e) {
         System.out.println(OutputErrors.NUMBER_EXPECTED);
         continue manualEntryLoop;
       }
