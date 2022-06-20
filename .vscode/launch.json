@@ -31,5 +31,12 @@
       "mainClass": "SimpleCompetitions",
       "args": "< ~/git/comp90041-simplecompetitions/tests/visible1.in"
     },
+    {
+      "type": "java",
+      "name": "Launch with visible test 3",
+      "request": "launch",
+      "mainClass": "SimpleCompetitions",
+      "args": "< ~/git/comp90041-simplecompetitions/tests/visible3.in"
+    }
   ]
 }
