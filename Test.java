@@ -229,6 +229,9 @@ public class Test {
     }
   }
 
+  /**
+   * Tests for regex pattern matching
+   */
   public static void patternMatching() {
     // String pattern = UserConsole.YES_NO_BINARY;
     String pattern = UserConsole.INTEGER_LIST;
