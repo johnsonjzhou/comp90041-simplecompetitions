@@ -9,8 +9,11 @@
  */
 public class Member implements CommaSeparated {
 
-  /** id is 6 digits  */
-  public static final String ID_FORMAT = "^\\d{6}$";
+  /** regex expression for non-empty string */
+  public static final String NON_EMPTY = "(.+)";
+
+  /** id must not be empty string  */
+  public static final String ID_FORMAT = NON_EMPTY;
 
   /** csv has 3 columns */
   private static final int COL_NUMBER = 3;
@@ -51,16 +54,16 @@ public class Member implements CommaSeparated {
 
     // validate id
     if (!values[0].matches(Member.ID_FORMAT)) {
-      throw new DataFormatException("Member ID should be 6 digits");
+      throw new DataFormatException("Member ID must not be empty");
     }
 
     // validate name 
-    if (values[1].length() < 1) {
+    if (!values[1].matches(Member.NON_EMPTY)) {
       throw new DataFormatException("Member name not provided");
     }
 
     // valid email
-    if (values[2].length() < 1) {
+    if (!values[2].matches(Member.NON_EMPTY)) {
       throw new DataFormatException("Member email not provided");
     }
 

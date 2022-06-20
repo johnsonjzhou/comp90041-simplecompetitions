@@ -9,8 +9,17 @@
  */
 public class Bill implements CommaSeparated {
 
+  /** regex expression for non-empty string */
+  public static final String NON_EMPTY = "(.+)";
+
   /** id is 6 digits  */
   public static final String ID_FORMAT = "^\\d{6}$";
+
+  /** amount must be numeric with decimal point */
+  public static final String AMOUNT_FORMAT = "[\\d.]+";
+
+  /** boolean format defined as true or false */
+  public static final String BOOLEAN_FORMAT = "(true|false)";
 
   /** csv data has 4 columns */
   private static final int COL_NUMBER = 4;
@@ -60,17 +69,17 @@ public class Bill implements CommaSeparated {
 
     // validate member id 
     if (values[1].length() > 0 && !values[1].matches(Member.ID_FORMAT)) {
-      throw new DataFormatException("Member ID should be 6 digits");
+      throw new DataFormatException("Member ID format incorrect");
     }
 
     // validate amount 
-    if (values[2].length() < 1) {
+    if (!values[2].matches(Bill.AMOUNT_FORMAT)) {
       throw new DataFormatException("Bill amount not provided");
     }
 
     // validate used 
-    if (values[3].length() < 1) {
-      throw new DataFormatException("Bill used not provided");
+    if (!values[3].matches(Bill.BOOLEAN_FORMAT)) {
+      throw new DataFormatException("Bill used status not provided");
     }
 
     this.id = values[0];

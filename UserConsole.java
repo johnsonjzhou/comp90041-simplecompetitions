@@ -24,7 +24,7 @@ public class UserConsole {
   public static final String INTEGER_LIST = "^(\\d+)(\\s\\d+)*?$";
 
   /** regex pattern for y/n prompts */
-  public static final String YES_NO_BINARY = "^[yYnN]{1}$";
+  public static final String YES_NO_BINARY = "^(?i:[yn]{1})$";
 
   /** Scanner instance */
   private Scanner stdin;

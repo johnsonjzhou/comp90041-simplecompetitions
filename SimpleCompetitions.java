@@ -46,7 +46,7 @@ public class SimpleCompetitions {
         modeLoop : while(true) {
           try {
             System.out.println(OutputPrompts.RUN_MODE);
-            String pattern = "^[tTnN]{1}$";
+            String pattern = "^(?i:[tn]{1})$";
             String testMode = console.readNextLinePattern(pattern).toLowerCase();
       
             switch (testMode) {
