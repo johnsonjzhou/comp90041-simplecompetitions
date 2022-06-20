@@ -26,10 +26,10 @@
     },
     {
       "type": "java",
-      "name": "Launch with visible test",
+      "name": "Launch with visible test 1",
       "request": "launch",
       "mainClass": "SimpleCompetitions",
-      "args": "< ~/git/comp90041-simplecompetitions/tests/custom1.in"
+      "args": "< ~/git/comp90041-simplecompetitions/tests/visible1.in"
     },
   ]
 }
