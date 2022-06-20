@@ -17,6 +17,7 @@ public class AutoNumbersEntry extends NumbersEntry {
   private static final int MEANING_OF_LIFE = 42;
 
   /**
+   * Constructor for creating a AutoNumbersEntry 
    * @param  entryId  the entry id
    * @param  billId  associated bill ID
    * @param  memberId  associated member ID
@@ -26,6 +27,7 @@ public class AutoNumbersEntry extends NumbersEntry {
   }
   
   /**
+   * Generates a new AutoNumbersEntry based on a seed value 
    * @param  seed  In the testing mode, you should use the competition 
    *                identifier as seed for generating the lucky entry and 
    *                the number of entries in the currently active competition 

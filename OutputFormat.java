@@ -8,6 +8,9 @@
  * Dictionary for formatted strings 
  */
 public final class OutputFormat {
+
+  /** This is a lookup class only and has no instantised fields or methods */
+  public OutputFormat() {}
   
   /** Competition ID: 1, Competition Name: Easter Holidays, Type: RandomPickCompetition */
   public static final String COMPETITION_CREATED = 

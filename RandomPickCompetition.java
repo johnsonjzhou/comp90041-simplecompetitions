@@ -26,6 +26,7 @@ public class RandomPickCompetition extends Competition {
   private final int MAX_WINNING_ENTRIES = 3;
 
   /**
+   * Constructor for creating a new RandomPickCompetition 
    * @param  id  the competition id
    * @param  name  the competition name
    */
@@ -35,6 +36,10 @@ public class RandomPickCompetition extends Competition {
     this.announceName();
   }
 
+  /**
+   * Prints the competition winners to string 
+   * @param  data  the DataProvider to provide information 
+   */
   private void announceWinners(DataProvider data) {
     // announce competition name and type 
     this.announceName();

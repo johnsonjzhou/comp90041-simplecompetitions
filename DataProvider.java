@@ -24,7 +24,7 @@ public class DataProvider {
   private ArrayList<Bill> bills;
 
   /**
-   * 
+   * Constructor for creating a new DataProvider 
    * @param memberFile A path to the member file (e.g., members.csv)
    * @param billFile A path to the bill file (e.g., bills.csv)
    * @throws DataAccessException If a file cannot be opened/read
@@ -96,6 +96,7 @@ public class DataProvider {
   /** public */
 
   /**
+   * Gets the Bill for a given bill ID 
    * @param  billId  id of the bill to retrieve
    * @return  the Bill designated by the billId or null
    */
@@ -109,6 +110,7 @@ public class DataProvider {
   }
 
   /**
+   * Checks whether a member ID belongs to a valid member 
    * @param  memberId  the member ID to look up
    * @return  <code>True</code> if memberId matches a Member 
    */
@@ -122,6 +124,7 @@ public class DataProvider {
   }
 
   /**
+   * Gets a member's name from a member ID 
    * @param  memberId  search for this member id
    * @return  the member name, or a 0 length string if not found 
    */
@@ -136,6 +139,7 @@ public class DataProvider {
   }
 
   /**
+   * Returns a summary of number of members and bills in the Data Provider 
    * @return  brief summary of class showing number of members and bills 
    */
   public String getSummary() {
@@ -145,6 +149,7 @@ public class DataProvider {
   }
 
   /**
+   * Saves the members and bills files to CSV file 
    * @throws  FileIOException  if an error occurs when writing the file 
    */
   public void saveDataFiles() throws FileIOException {
@@ -155,6 +160,7 @@ public class DataProvider {
   /** override */
 
   /**
+   * The string output of the class by invoking the getSummary() method 
    * @return  invokes the getSummary() method 
    */
   public String toString() {

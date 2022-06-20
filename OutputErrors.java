@@ -9,6 +9,9 @@
  */
 public final class OutputErrors {
 
+  /** This is a lookup class only and has no instantised fields or methods */
+  public OutputErrors() {}
+
   /** general error */
   public static final String GENERAL_ERROR = 
     "An unexpected error occurred.";

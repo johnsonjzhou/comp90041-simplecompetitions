@@ -37,6 +37,7 @@ public class Bill implements CommaSeparated {
   private boolean used; 
 
   /**
+   * Constructor for a new Bill 
    * @param  csv  comma separate data from csv file, invokes parseCsv
    * @throws  DataFormatException  if the CSV data format is incorrect 
    */
@@ -104,6 +105,7 @@ public class Bill implements CommaSeparated {
   } 
 
   /**
+   * Outputs the Bill contents to a CSV string 
    * @return  bill information as csv 
    */
   public String toCsv() {
@@ -113,6 +115,7 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * Gets the Bill ID
    * @return  bill id
    */
   public String getId() {
@@ -120,6 +123,7 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * Gets the Member ID 
    * @return  the member id associated with this bill 
    */
   public String getMemberId() {
@@ -127,6 +131,7 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * Gets the amount 
    * @return  the amount of this bill 
    */
   public double getAmount() {
@@ -134,6 +139,7 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * Checks whether the Bill has already been used 
    * @return  <code>True</code> if the bill has been used for an entry 
    */
   public boolean isUsed() {
@@ -148,6 +154,7 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * Checks whether this bill equals a provided bill ID
    * @param  billId  the bill id to compare with 
    * @return  <code>True</code> if id equals provided billId 
    */
@@ -156,6 +163,7 @@ public class Bill implements CommaSeparated {
   }
 
   /**
+   * Converts object to string by invoking the toCsv() method 
    * @return  bill information as csv by invoking toCsv() method
    */
   @Override

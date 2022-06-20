@@ -28,6 +28,7 @@ public class Member implements CommaSeparated {
   private String email;
 
   /**
+   * Constructor for creating a new Member object 
    * @param  csv  comma separate data from csv file, invokes parseCsv
    * @throws  DataFormatException  if the CSV data format is incorrect 
    */
@@ -73,6 +74,7 @@ public class Member implements CommaSeparated {
   } 
 
   /**
+   * Converts the class data into a CSV string 
    * @return  member info as csv 
    */
   public String toCsv() {
@@ -89,6 +91,7 @@ public class Member implements CommaSeparated {
   }
 
   /**
+   * Gets the member ID 
    * @return  member ID 
    */
   public String getId() {
@@ -96,6 +99,7 @@ public class Member implements CommaSeparated {
   }
 
   /**
+   * Gets the mmember name 
    * @return  member name 
    */
   public String getName() {
@@ -105,6 +109,7 @@ public class Member implements CommaSeparated {
   /** overrides */
 
   /**
+   * Object to string conversion by invoking the toCsv() method 
    * @return  member info as csv by invoking toCsv() method
    */
   @Override

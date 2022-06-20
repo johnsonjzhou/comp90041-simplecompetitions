@@ -207,6 +207,7 @@ public class SimpleCompetitions {
   }
 
   /**
+   * Gets the currently active competition 
    * @return  the active competition
    * @throws  MenuException  if no active competition is found 
    */
@@ -338,6 +339,7 @@ public class SimpleCompetitions {
   }
 
   /**
+   * Exits the application with normal status 
    * @throws  MenuException  if there was a problem writing the file 
    */
   private void exit() throws MenuException {

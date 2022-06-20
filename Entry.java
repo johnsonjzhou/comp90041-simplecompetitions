@@ -28,6 +28,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   private int prize; 
 
   /**
+   * Constructor for creating an entry 
    * @param  entryId  numeric id for the entry 
    * @param  billId  associated bill ID
    * @param  memberId  associated member ID
@@ -41,6 +42,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Gets the entry ID
    * @return  the entry id
    */
   public int getId() {
@@ -55,6 +57,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Checks the valid state
    * @return  the valid state 
    */
   public boolean isValid() {
@@ -62,6 +65,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Gets the bill ID 
    * @return  the bill id associated with this entry 
    */
   public String getBillId() {
@@ -69,6 +73,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Gets the member ID 
    * @return  the member id associated with this entry
    */
   public String getMemberId() {
@@ -76,6 +81,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Sets the prize amount 
    * @param  prize  set the prize to this value 
    */
   public void setPrize(int prize) {
@@ -83,6 +89,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Gets the prize amount 
    * @return  the prize associated with this entry 
    */
   public int getPrize() {
@@ -90,6 +97,7 @@ public class Entry implements Comparable<Entry>, Serializable {
   }
 
   /**
+   * Gets a summary of the entry as a string 
    * @return  summary of entry with id 
    * Entry ID: 2      
    */

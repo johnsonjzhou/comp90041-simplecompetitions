@@ -31,6 +31,7 @@ public class FileIO {
   private boolean readonly = true;
 
   /**
+   * Constructor to create a new FileIO 
    * @param  filepath  path to the file as String 
    * @throws  NullPointerException  passthrough exception from File class 
    */
@@ -39,6 +40,7 @@ public class FileIO {
   }
 
   /**
+   * Constructor for creating a new FileIO 
    * @param  filepath  path to the file as String 
    * @param  readonly  <code>True</code> read only (default), 
    *                   <code>False</code> writable 
@@ -74,6 +76,7 @@ public class FileIO {
   }
 
   /**
+   * Checks whether a file exists 
    * @return  <code>True</code> if and only if the file or directory 
    *          denoted by this abstract pathname exists
    */
@@ -82,6 +85,7 @@ public class FileIO {
   }
 
   /**
+   * Checks whether there is another token to be read from the file 
    * @return  whether there is another token to read from the file
    * @throws  FileIOException  if file could not be opened with FileInputStream 
    */
@@ -91,6 +95,7 @@ public class FileIO {
   }
 
   /**
+   * Reads the next token from the file 
    * @return  next token read from the file as String
    * @throws  FileIOException  if file could not be opened with FileInputStream 
    */
@@ -100,6 +105,7 @@ public class FileIO {
   }
 
   /**
+   * Whether there is another line to be read from the file 
    * @return  whether this is another line to read from the file 
    * @throws  FileIOException  if file could not be opened with FileInputStream 
    */
@@ -109,6 +115,7 @@ public class FileIO {
   }
 
   /**
+   * Reads the next line from the file 
    * @return  the remainder of the current line as String 
    * @throws  FileIOException  if file could not be opened with FileInputStream 
    */
@@ -118,6 +125,7 @@ public class FileIO {
   }
 
   /**
+   * Gets the entire file contents as an ArrayList of Strings 
    * @return  the entire file contents as an ArrayList of Strings 
    * @throws  FileIOException  if file could not be opened with FileInputStream 
    */
@@ -214,8 +222,6 @@ public class FileIO {
       outputStream.close();
     } catch (Exception e) {
       throw new FileIOException("Could not write object to file.");
-    } finally {
-      
     }
   }
 

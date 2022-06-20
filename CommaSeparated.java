@@ -17,6 +17,7 @@ public interface CommaSeparated {
   public void parseCsv(String csv) throws DataFormatException;
 
   /**
+   * Converts the class data into a CSV string 
    * @return data as csv line
    */
   public String toCsv();

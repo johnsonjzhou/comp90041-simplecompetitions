@@ -33,6 +33,7 @@ public abstract class Competition implements Serializable {
   private boolean testMode = false;
 
   /**
+   * Constructor for creating a new Competition 
    * @param  id  the competition id
    * @param  name  the competition name
    */
@@ -63,6 +64,7 @@ public abstract class Competition implements Serializable {
   /** public */
 
   /**
+   * Gets the competition ID 
    * @return  the competition id 
    */
   public int getId() {
@@ -70,6 +72,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Checks whether the competition is currently active 
    * @return  whether the competition is active 
    */
   public boolean isActive() {
@@ -84,6 +87,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Sets the testMode state 
    * @param  testMode  set testMode flag to specified 
    */
   public void setTestMode(boolean testMode) {
@@ -91,6 +95,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Gets the tetMode state 
    * @return  the state of testMode flag 
    */
   public boolean isTestMode() {
@@ -106,6 +111,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Gets the list of entries in the competition 
    * @return  the entries list 
    */
   public ArrayList<Entry> getEntries() {
@@ -113,6 +119,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Gets how many entries currently in the entries list 
    * @return  number of entries currently in the entries list 
    */
   public int entrySize() {
@@ -146,6 +153,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Gets the list of winning entries 
    * @return  the list of winning entries 
    */
   public ArrayList<Entry> getWinningEntries() {
@@ -262,6 +270,7 @@ public abstract class Competition implements Serializable {
   }
 
   /**
+   * Calculates how many entries is eligible based on a bill amount 
    * @param  billAmount  the amount from the bill 
    * @return  number of entries the bill is eligible for based on MIN_ENTRY_AMOUNT 
    */

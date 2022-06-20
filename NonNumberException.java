@@ -10,6 +10,7 @@
 public class NonNumberException extends Exception {
 
   /**
+   * Constructor for creating a new Exception with an error message 
    * @param  message  reason why the error was thrown 
    */
   public NonNumberException(String message) {

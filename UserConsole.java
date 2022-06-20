@@ -53,6 +53,7 @@ public class UserConsole {
   /** public */
 
   /**
+   * Reads the next line from the input 
    * @return  the nextLine from the input 
    */
   public String readNextLine() {
@@ -136,6 +137,7 @@ public class UserConsole {
   }
 
   /**
+   * Gets the size of the input buffer 
    * @return  the size of the buffer as int 
    */
   public int bufferedSize() {

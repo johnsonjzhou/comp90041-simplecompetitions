@@ -14,6 +14,7 @@ public class LuckyNumbersCompetition extends Competition {
   private final int[] prizeAllocation = { 0, 0, 50, 100, 500, 1000, 5000, 50000 };
 
   /**
+   * Constructor for creating a new LuckyNumbersCompetition 
    * @param  id  the competition id
    * @param  name  the competition name
    */
@@ -25,6 +26,7 @@ public class LuckyNumbersCompetition extends Competition {
 
   /**
    * Output the winners to screen 
+   * @param  data  the DataProvider to provide information 
    */
   private void announceWinners(DataProvider data) {
     System.out.println(OutputPrompts.WINNING_ENTRIES);

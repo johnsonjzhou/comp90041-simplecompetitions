@@ -10,6 +10,7 @@
 public class DataAccessException extends Exception {
 
   /**
+   * Constructor for creating the exception with an error message 
    * @param  message  reason the error was thrown 
    */
   public DataAccessException(String message) {

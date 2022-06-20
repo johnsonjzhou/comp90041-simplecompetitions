@@ -9,6 +9,9 @@
  */
 public final class OutputPrompts {
 
+  /** This is a lookup class only and has no instantised fields or methods */
+  public OutputPrompts() {}
+
   /** application welcome message  */
   public static final String WELCOME_MESSAGE = 
     "----WELCOME TO SIMPLE COMPETITIONS APP----";

@@ -10,6 +10,7 @@
 public class DataFormatException extends Exception {
 
   /**
+   * Constructor for creating the exception with a message 
    * @param  message  reason the error was thrown
    */
   public DataFormatException(String message) {

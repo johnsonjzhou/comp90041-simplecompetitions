@@ -24,6 +24,7 @@ public class NumbersEntry extends Entry {
   private ArrayList<Integer> stagedNumbers; 
 
   /**
+   * Constructor to create a NumbersEntry 
    * @param  entryId  the entry id
    * @param  billId  associated bill ID
    * @param  memberId  associated member ID 
@@ -93,6 +94,7 @@ public class NumbersEntry extends Entry {
   }
 
   /**
+   * Gets the numbers within the entry 
    * @return  the numbers within the entry 
    */
   public int[] getNumbers() {
@@ -100,6 +102,7 @@ public class NumbersEntry extends Entry {
   }
 
   /**
+   * Checks whether this entry matches another entry interms of entry numbers 
    * @param  otherEntry  another entry of the same type to match against 
    * @return  the quantity of numbers that matches the otherEntry 
    */
@@ -131,6 +134,7 @@ public class NumbersEntry extends Entry {
   }
 
   /**
+   * Gets a summary of entry numbers in a formatted string
    * @return  summary of numbers in a formatted string 
    */
   public String numbersSummary() {
@@ -146,6 +150,7 @@ public class NumbersEntry extends Entry {
   }
 
   /**
+   * Gets a summary of the entry as a string 
    * @return  summary of entry id and numbers if numbers have been created 
    */
   @Override

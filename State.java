@@ -38,6 +38,7 @@ public class State implements Serializable {
   /** setters */
 
   /**
+   * Set the testMode state 
    * @param  testMode  sets the testMode state 
    */
   public void setTestMode(boolean testMode) {
@@ -45,6 +46,7 @@ public class State implements Serializable {
   }
 
   /**
+   * Adds a competition to the state 
    * @param  competition  adds a Competition to the state 
    */
   public void addCompetition(Competition competition) {
@@ -55,6 +57,7 @@ public class State implements Serializable {
   /** getters */
 
   /**
+   * Gets the competition list 
    * @return  all the competitions currently held in state 
    */
   public ArrayList<Competition> getCompetitions() {
@@ -62,6 +65,7 @@ public class State implements Serializable {
   }
 
   /**
+   * Gets the testMode state 
    * @return  the testMode state 
    */
   public boolean getTestMode() {

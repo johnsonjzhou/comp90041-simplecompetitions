@@ -10,6 +10,7 @@
 public class InvalidEntryException extends Exception {
 
   /**
+   * Constructor for creating a new Exception with an error message 
    * @param  message  reason for error being thrown 
    */
   public InvalidEntryException(String message) {
